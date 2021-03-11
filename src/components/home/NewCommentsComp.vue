@@ -21,7 +21,7 @@
 .new-comments-container {
   position: relative;
 
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 </style>

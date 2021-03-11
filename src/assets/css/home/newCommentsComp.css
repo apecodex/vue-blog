@@ -5,14 +5,18 @@
 .new-comments-content a{
   display: flex;
   align-items: center;
+  padding: 5px 0;
   border-bottom: 1px dotted rgba(0, 0, 0, .3);
 }
 
 
 .new-comments-content .new-comments-head {
   flex: 1;
+  display: flex;
+  justify-content: center;
   transition: .5s ease;
-
+  width: 100%;
+  height: 100%;
 }
 
 .new-comments-content .new-comments-head img {
@@ -30,12 +34,12 @@
 }
 
 .new-comments-content:hover .new-comments-head {
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
 }
 
 .new-comments-content .new-comments-nc {
   flex: 4;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   padding: 3px 8px;
   margin: 5px 0;
   border-radius: 8px;
@@ -47,7 +51,6 @@
   font-size: 16px;
   font-weight: bold;
 }
-
 
 .comments-tips {
   display: none;
@@ -73,5 +76,3 @@
 .new-comments-content:hover .comments-tips {
   display: block;
 }
-
-

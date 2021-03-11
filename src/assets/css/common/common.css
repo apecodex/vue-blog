@@ -70,8 +70,3 @@
     transform: scale3d(1,1,1);
   }
 }
-
-/* 头像旋转 */
-.rotate-img {
-  transform: rotate(360deg);
-}
