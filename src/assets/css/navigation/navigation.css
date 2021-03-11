@@ -1,0 +1,256 @@
+.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10vw;
+  height: 80px;
+  background: rgba(65, 81, 101, .7);
+  box-shadow: 0 0 5px 3px rgba(65, 81, 101, .7);
+  z-index: 10;
+}
+
+.navigation .logo {
+  font-size: 40px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: #dadbdd;
+  height: 80px;
+  flex: 1;
+  
+}
+
+/* 动态logo */
+.text {
+  fill: none;
+  stroke-width: 1;
+  stroke-dasharray: 0 240;
+  stroke-dashoffset: 0;
+}
+.text:nth-child(4n + 1) {
+  stroke: rgb(39, 135, 238);
+  animation: text1 4s ease-in-out forwards;
+}
+.text:nth-child(4n + 2) {
+  stroke: rgb(47, 169, 92);
+  animation: text2 3s ease-in-out forwards;
+}
+.text:nth-child(4n + 3) {
+  stroke: rgb(249, 189, 56);
+  animation: text3 4s ease-in-out forwards;
+}
+.text:nth-child(4n + 4) {
+  stroke: rgb(235, 61, 50);
+  animation: text4 3s ease-in-out forwards;
+}
+
+@keyframes text1 {
+  100% {
+    stroke-dashoffset: 1000;
+    stroke-dasharray: 60 180;
+  }
+}
+@keyframes text2 {
+  100% {
+    stroke-dashoffset: 1060;
+    stroke-dasharray: 60 180;
+  }
+}
+@keyframes text3 {
+  100% {
+    stroke-dashoffset: 1120;
+    stroke-dasharray: 60 180;
+  }
+}
+@keyframes text4 {
+  100% {
+    stroke-dashoffset: 1180;
+    stroke-dasharray: 60 180;
+  }
+}
+
+.nav-menu {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.nav-menu div {
+  font-weight: 600;
+  position: relative;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #dadbdd;
+  margin: 4px;
+}
+
+.burger {
+  display: none;
+}
+
+/* 波浪 */
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px;
+  z-index: 1;
+}
+
+.parallax>use {
+  animation: move-forever 20s cubic-bezier(.85,.45,.45,.45) infinite;
+}
+
+.parallax>use:nth-child(1) {
+  /* 延迟2秒执行 */
+  animation-delay: -2s;
+  /* 7秒内完成 */
+  animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax>use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 16s;
+}
+.parallax>use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 13s;
+}
+.parallax>use:nth-child(5) {
+  animation-delay: -6s;
+  animation-duration: 5s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px,0,0);
+  }
+  50% {
+    transform: translate3d(20px,0,0);
+  }
+  100% {
+    transform: translate3d(85px,0,0);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navigation {
+    padding: 0 1vw;
+  }
+  ::-webkit-scrollbar  
+  {  
+    display: none!important;
+    width: 0px;  
+    height: 0px;  
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    padding: 15px 15px;
+    width: 50vw;
+    height: calc(100vh - 80px);
+
+    background-color: rgba(65, 81, 101, .7);
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    transform: translateX(100%);
+    transition: .6s ease-in-out;
+    /* box-shadow: 0 15px 5px 5px rgba(65, 81, 101, .7); */
+
+  }
+
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+
+  .nav-menu div {
+    position: relative;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  /* 打开菜单效果 */
+  .burger.active div {
+    transition: .3s ease-in-out .3s;
+  }
+
+  .burger.active .top-line {
+    transform: rotate(45deg) translate(4px, 6px);
+  }
+
+  .burger.active .bottom-line {
+    transform: rotate(-45deg) translate(4px, -6px);
+  }
+
+  .burger.active .middle-line {
+    opacity: 0;
+    transform: translateX(10px);
+    transition: .3s ease-in-out;
+  }
+
+  /* 关闭菜单效果 */
+  .burger.close div {
+    transition: .3s ease-in-out .3s;
+  }
+
+  .burger.close .top-line {
+    transform: rotate(0deg) translate(-10px, 0px);
+  }
+
+  .burger.close .bottom-line {
+    transform: rotate(0deg) translate(-10px, 0px);
+  }
+
+  .burger.close .middle-line {
+    opacity: 1;
+    transform: translateX(-10px);
+    transition: .3s ease-in-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* 波浪 */
+  .waves {
+    height: 100vh;
+    min-height: 40px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    padding: 0 1vw;
+  }
+}

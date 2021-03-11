@@ -1,0 +1,97 @@
+.information-inner {
+  position: relative;
+}
+
+.information-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 36px;
+  font-family: 'Times New Roman', Times, serif;
+  background: rgba(0, 0, 0, .6);
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 5px 5px 3px 3px;
+  display: flex;
+  justify-content: center;
+}
+
+.information-name i {
+  line-height: 36px;
+  color: brown;
+}
+
+.information-name i:last-child {
+  transform: rotate(180deg);
+}
+
+.information-content {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.information-content .information-description {
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.information-content > div {
+  margin-bottom: 15px;
+
+}
+
+.information-img {
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+}
+
+.information-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  vertical-align: middle;
+  box-shadow: 0 0 3px 1px #000,
+              0 0 3px 1px #000 inset;
+  transition: all .3s ease;
+}
+
+.information-img img:hover {
+  transform: rotate(360deg);
+}
+
+.information-link {
+  margin-bottom: 5px !important;
+}
+
+.information-link ul {
+  display: flex;
+  position: relative;
+}
+.information-link ul li {
+  padding: 5px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px dotted rgba(0, 0, 0, .6);
+  border-bottom: 1px dotted rgba(0, 0, 0, .6);
+}
+
+.information-link ul li a:hover {
+  color: crimson;
+}
+
+.link-tips {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  margin-bottom: 0 !important;
+  color: darkred;
+  font-weight: bold;
+}

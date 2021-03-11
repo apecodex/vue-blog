@@ -1,0 +1,71 @@
+@import "./normalize.css";
+
+/*:root -> 获取根元素html*/
+:root {
+  --color-text: #202224;
+  --color-high-text: #ff5777;
+  --color-tint: #ff8198;
+  --color-background:  #2f3640;
+  --color-background-box: rgba(65, 81, 101, .1);
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+
+.html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial,Helvetica,sans-serif;
+  user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
+  -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
+  /* background: var(--color-background); */
+  color: var(--color-text);
+  /* rem vw/vh */
+  /* width: 100vw; */
+  /* overflow: hidden; */
+  /* overflow-x: hidden; */
+  /* 这里是解决移动端下overflow: hidden不起作用 */
+  /* position: fixed;
+  height:100%;
+  width:100%; */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999999;
+  cursor: url('assets/cursor/mouse1.cur'), auto;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  cursor: url('assets/cursor/mouse2.cur'), auto;
+}
+
+h1 {
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.img {
+  max-width: 100%;
+  border-radius: 4px;
+  vertical-align: middle;
+}
