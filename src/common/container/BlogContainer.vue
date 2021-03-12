@@ -51,4 +51,9 @@
     left: 0;
     right: 0;
   }
+
+  footer {
+    position: relative;
+    background-color: rgba(0, 0, 0, .6);
+  }
 </style>

@@ -7,7 +7,7 @@
     </div>
     <div class="information-content">
       <div class="information-img">
-        <img src="~assets/img/head.jpg" alt="">
+        <img :src="head" :alt="author">
       </div>
       <div class="information-description box-rubber-band">
         <p>{{ description }}</p>
@@ -21,6 +21,19 @@
         </ul>
       </div>
       <div class="link-tips">{{ showText }}</div>
+      <div class="erweima-box">
+        <div class="erweima" v-show="supportShow">
+          <div class="wechat-box">
+            <img src="~assets/img/wechat.png" alt="wechat">
+            <span>微信</span>
+          </div>
+          <div class="alipay-box">
+            <img src="~assets/img/alipay.png" alt="alipay">
+            <span>支付宝</span>
+          </div>
+        </div>
+        <div class="erweima-btn" @click="supportShowBtn"><i class="fa fa-thumbs-up fa-fw" aria-hidden="true"></i>支持</div>
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +42,7 @@
   import { defineProps, ref } from 'vue'
 
   const props = defineProps({
+    'head': String,
     'author': String,
     'description': String,
     'link': Array
@@ -36,6 +50,7 @@
 
   const isShow = ref(true)
   const showText = ref('')
+  const supportShow = ref(false)
 
 
   const showMsg = (description) => {
@@ -45,6 +60,10 @@
   const closeMsg = (description) => {
     isShow.value = !isShow.value
     showText.value = ''
+  }
+
+  const supportShowBtn = () => {
+    supportShow.value = !supportShow.value
   }
 </script>
 

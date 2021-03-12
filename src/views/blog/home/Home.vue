@@ -26,25 +26,80 @@
       </template>
       <!-- 搜索 -->
       <template #search>
-        <search-comp></search-comp>
+        <search-comp />
       </template>
       <!-- 个人信息 -->
       <template #information>
-        <information-comp :author='information.author'
+        <information-comp :head="information.head"
+                          :author='information.author'
                           :description='information.description'
                           :link='information.link'
-        ></information-comp>
+        />
       </template>
+      <!-- 最新评论 -->
       <template #comments>
-        <new-comments-comp>
+        <box-comp>
+          <template #title>最新评论</template>
           <template #content>
-            <comments-item></comments-item>
-            <comments-item></comments-item>
-            <comments-item></comments-item>
-            <comments-item></comments-item>
-            <comments-item></comments-item>
+            <comments-item link="##"
+                          head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
+                          commentUser="apecode1"
+                          text="some text some text some text some text some text "
+                          articleTitle="我的博文1"/>
+            <comments-item link="##"
+                          head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
+                          commentUser="apecode2"
+                          text="some text some text some"
+                          articleTitle="我的博文2"/>
+            <comments-item link="##"
+                          head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
+                          commentUser="apecode3"
+                          text="some text some text some text s"
+                          articleTitle="我的博文3"/>
+            <comments-item link="##"
+                          head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
+                          commentUser="apecode4"
+                          text="some text some text e text some text "
+                          articleTitle="我的博文4"/>
+            <comments-item link="##"
+                          head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
+                          commentUser="apecode5"
+                          text="some text some text some text "
+                          articleTitle="我的博文5"/>
           </template>
-        </new-comments-comp>
+        </box-comp>
+      </template>
+      <!-- 最热文章 -->
+      <template #hotArticle>
+        <box-comp>
+          <template #title>最热文章</template>
+          <template #content>
+            <hot-article-item title="我的博文" :num="2890"></hot-article-item>
+            <hot-article-item title="我的博文" :num="2530"></hot-article-item>
+            <hot-article-item title="我的博文" :num="1640"></hot-article-item>
+            <hot-article-item title="我的博文" :num="890"></hot-article-item>
+            <hot-article-item title="我的博文" :num="680"></hot-article-item>
+            <hot-article-item title="我的博文" :num="50"></hot-article-item>
+          </template>
+        </box-comp>
+      </template>
+      <!-- 热门标签 -->
+      <template #hotTags>
+        <box-comp>
+          <template #title>热门标签</template>
+          <template #content>
+            <hot-tag :tags="tags"></hot-tag>
+          </template>
+        </box-comp>
+      </template>
+      <!-- 友链 -->
+      <template #friendLink>
+        <box-comp>
+          <template #title>友情链接</template>
+          <template #content>
+            <friend-link></friend-link>
+          </template>
+        </box-comp>
       </template>
     </home-container>
   </div>
@@ -56,11 +111,15 @@
   import ArticleComp from 'components/home/ArticleComp.vue'
   import SearchComp from 'components/home/SearchComp.vue'
   import InformationComp from 'components/home/InformationComp.vue'
-  import NewCommentsComp from 'components/home/NewCommentsComp.vue'
-  import CommentsItem from 'components/home/newCommentsChild/CommentsItem.vue'
+  import boxComp from 'common/boxComp.vue'
+  import CommentsItem from 'components/home/newComments/CommentsItem.vue'
+  import HotArticleItem from 'components/home/hotArticle/HotArticleItem.vue'
+  import HotTag from 'components/home/hotTag/HotTag.vue'
+  import FriendLink from 'components/home/friendLink/FriendLink.vue'
 
-  import { reactive } from 'vue'
+  import { reactive, ref } from 'vue'
   const information = reactive({
+    head: 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg',
     author: 'apecode',
     description: 'some description some description',
     link: [
@@ -70,6 +129,8 @@
       {'name': 'email', 'icon': 'fa-envelope', isLink: false, 'description': 'apecode@qq.com'},
     ]
   })
+
+  const tags = ref(['Java', 'Python', 'Go', 'Linux', 'Servlet', 'Tomcat', '算法', '日常', '学习']);
 </script>
 
 <style scoped>

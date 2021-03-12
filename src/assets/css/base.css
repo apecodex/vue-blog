@@ -24,19 +24,10 @@
 }
 
 body {
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   user-select: none; /* 禁止用户鼠标在页面上选中文字/图片等 */
   -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
-  /* background: var(--color-background); */
   color: var(--color-text);
-  /* rem vw/vh */
-  /* width: 100vw; */
-  /* overflow: hidden; */
-  /* overflow-x: hidden; */
-  /* 这里是解决移动端下overflow: hidden不起作用 */
-  /* position: fixed;
-  height:100%;
-  width:100%; */
   position: fixed;
   top: 0px;
   left: 0px;

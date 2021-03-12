@@ -18,9 +18,7 @@
       </div>
     </template>
     <template #footer>
-      <div class="fonter-container">
-        sdsd
-      </div>
+      <footer-comp></footer-comp>
     </template>
   </blog-container>
 </template>
@@ -29,6 +27,7 @@
   import BlogContainer from 'common/container/BlogContainer.vue'
   import Navigation from 'components/navigation/Navigation.vue'
   import NavigationItem from 'components/navigation/NavigationItem.vue'
+  import FooterComp from 'components/footer/FooterComp.vue'
 
 </script>
 

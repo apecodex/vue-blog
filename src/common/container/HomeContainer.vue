@@ -17,6 +17,15 @@
     <div class="new-comments">
       <slot name="comments"/>
     </div>
+    <div class="hot-article-container">
+      <slot name="hotArticle"/>
+    </div>
+    <div class="hot-tags-container">
+      <slot name="hotTags"/>
+    </div>
+    <div class="friend-link-container">
+      <slot name="friendLink"/>
+    </div>
   </div>
 </template>
 
