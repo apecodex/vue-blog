@@ -10,15 +10,10 @@
 </template>
 
 <script setup>
-import { defineProps, ref, computed, watchEffect } from 'vue'
-import { useRoute, useRouter } from "vue-router";
-import { useStore } from 'vuex'
-
-import sleep from 'utils/utils.js'
+import { defineProps } from 'vue'
+import { useRouter } from "vue-router";
 
 const router = useRouter()
-const route = useRoute()
-const store = useStore()
 
 const props = defineProps({
   itemIcon: String,

@@ -83,6 +83,7 @@
 .nav-menu div {
   font-weight: 600;
   position: relative;
+  white-space: nowrap;
 }
 
 .burger div {

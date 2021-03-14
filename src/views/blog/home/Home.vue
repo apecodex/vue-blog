@@ -97,7 +97,7 @@
         <box-comp>
           <template #title>友情链接</template>
           <template #content>
-            <friend-link></friend-link>
+            <friend-link :links="friendLinks"></friend-link>
           </template>
         </box-comp>
       </template>
@@ -131,11 +131,12 @@
   })
 
   const tags = ref(['Java', 'Python', 'Go', 'Linux', 'Servlet', 'Tomcat', '算法', '日常', '学习']);
+  const friendLinks = ref([{'name': 'apecode', 'link': 'https://liuyangxiong.cn'}, {name: 'aaaa', link: '#'}, {'name': '跌幅超过', 'link': '#'}, {'name': 'test name', 'link': '#'}, {'name': 'test name', 'link': '#'}, {'name': 'test name', 'link': '#'}])
 </script>
 
 <style scoped>
   .home-container {
-    padding: 0 10vw;
+    padding: 0 13vw;
     display: flex;
   }
 

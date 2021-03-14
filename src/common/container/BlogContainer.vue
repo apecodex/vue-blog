@@ -54,6 +54,7 @@
 
   footer {
     position: relative;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: #eee;
+    box-shadow:  0 0 5px 2px rgba(0, 0, 0, .3);
   }
 </style>

@@ -72,7 +72,7 @@
   color: #1dd1a1;
 }
 
-.category {
+.project {
   color: #086e2f;
 }
 
@@ -96,7 +96,7 @@
   color: #d803a3;
 }
 
-.nav-item:hover .category {
+.nav-item:hover .project {
   color: #4c267e;
 }
 

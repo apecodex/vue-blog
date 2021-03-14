@@ -1,35 +1,19 @@
 <template>
   <div class="friend-link-content">
     <ul>
-      <li class="box-rubber-band">
-        <a href="#">apecode</a>
-      </li>
-      <li class="box-rubber-band">
-        <a href="#">apecode的博客</a>
-      </li>
-      <li class="box-rubber-band">
-        <a href="#">apecode</a>
-      </li>
-      <li class="box-rubber-band">
-        <a href="#">apecode</a>
-      </li>
-      <li class="box-rubber-band">
-        <a href="#">apecode</a>
-      </li>
-      <li class="box-rubber-band">
-        <a href="#">apecode</a>
-      </li>
-      <li class="box-rubber-band">
-        <a href="#">apecode</a>
-      </li>
-      <li class="box-rubber-band">
-        <a href="#">apecode</a>
+      <li class="box-rubber-band" v-for="(item, index) of links" :key="index">
+        <a :href="item.link" target="__blank">{{item.name}}</a>
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
+  import { defineProps } from "vue";
+
+  const props = defineProps({
+    links: Array
+  });
 </script>
 
 <style scoped>

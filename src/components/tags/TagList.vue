@@ -1,5 +1,5 @@
 <template>
-  <h1>Category</h1>
+  <h1>tags</h1>
 </template>
 
 <script>
