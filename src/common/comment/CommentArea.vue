@@ -1,19 +1,23 @@
 <template>
   <form :action="actionUrl" :method="method" autocomplete="off" @submit="onSubmit">
-    <textarea name="message" v-model="message" id="message" :placeholder="placeholder" ref="contentArea"/>
+    <label for="message"></label>
+    <textarea name="message" v-model="message" id="message" :rows="rows" :placeholder="placeholder" ref="contentArea"/>
     <button>{{ btnText }}</button>
   </form>
 </template>
 
 <script setup>
-  import { defineProps, defineEmit, ref, watchEffect, nextTick } from "vue";
+import {defineEmit, defineProps, nextTick, ref, watchEffect} from "vue";
 
-  import { utf16toEntities, entitiestoUtf16 } from 'utils/utils.js'
+import {entitiestoUtf16, utf16toEntities} from 'utils/utils.js'
 
-  const props = defineProps({
+const props = defineProps({
     emojiFlag: Boolean,  // 标记已点击表情包
     emoji: String,
-
+    rows: {
+      type: String,
+      default: '1'
+    },
     placeholder: {
       type: String,
       default: '说点什么？'
@@ -45,8 +49,7 @@
       let endPos = contentArea.value.selectionEnd;
       if (startPos !== undefined || endPos !== undefined) {
         let txt = message.value
-        let result = txt.substring(0, startPos) + entitiestoUtf16(props.emoji) + txt.substring(endPos)
-        message.value = result
+        message.value = txt.substring(0, startPos) + entitiestoUtf16(props.emoji) + txt.substring(endPos)
         nextTick(() => {
           contentArea.selectionStart = startPos + entitiestoUtf16(props.emoji);
           contentArea.selectionEnd = startPos + entitiestoUtf16(props.emoji);
@@ -66,7 +69,7 @@
 
   form textarea {
     width: 100%;
-    height: 100px;
+    /*height: 100px;*/
     resize: none;
     padding: 5px;
     outline: none;

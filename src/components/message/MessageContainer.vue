@@ -17,7 +17,7 @@
 
 <style scoped>
   .message-inner {
-    padding: 0px 10vw;
+    padding: 5px 10vw 0;
     display: flex;
     height: 100vh;
   }

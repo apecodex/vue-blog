@@ -1,9 +1,10 @@
 <template>
-  <div class="comment-container">
+  <div class="comment-container" v-if="isShow">
     <comment-container>
       <template #commentArea>
         <comment-area :emojiFlag="emojiFlag" 
                       :emoji="emojiText"
+                      :rows="rows"
                       :placeholder="placeholder"
                       :actionUrl="actionUrl"
                       :method="method"
@@ -26,6 +27,11 @@
   import { defineProps, ref } from "vue";
 
   const props = defineProps({
+    isShow: {
+      type: Boolean,
+      default: true
+    },
+    rows: String,
     placeholder: {
       type: String,
       default: '说点什么呢？'

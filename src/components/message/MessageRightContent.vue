@@ -1,5 +1,7 @@
 <template>
-  <h1>Right</h1>
+  <div class="message-show-box">
+    <slot name="messageShow"/>
+  </div>
 </template>
 
 <script>

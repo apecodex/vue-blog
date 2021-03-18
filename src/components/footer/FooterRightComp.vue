@@ -1,7 +1,7 @@
 <template>
   <div class="left-content">
     <div class="title">apecode</div>
-    <div class="copyright">Copyright © 2021 by apecode All Rights Reserved.</div>
+    <div class="copyright">Copyright © {{ new Date().getFullYear() }} by apecode All Rights Reserved.</div>
   </div>
 </template>
 

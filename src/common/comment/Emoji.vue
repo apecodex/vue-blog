@@ -12,7 +12,7 @@
 <script setup>
   import { ref, defineEmit } from "vue";
 
-  import { utf16toEntities, entitiestoUtf16 } from 'utils/utils.js'
+  import { utf16toEntities, entitiestoUtf16 } from "utils/utils.js"
 
   const emit = defineEmit(['getEmoji'])
 
@@ -45,8 +45,6 @@
 </script>
 
 <style scoped>
-  @import url('assets/css/common/emoji.min.css');
-
   .emoji-box {
     position: relative;
   }
@@ -75,12 +73,12 @@
   .emoji-item ul {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 5px;
+    padding-left: 2px;
   }
 
   .emoji-item ul li {
     padding: 3px 0;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .emoji-item::-webkit-scrollbar {
