@@ -17,17 +17,17 @@
 
 <style scoped>
   .message-inner {
-    padding: 5px 10vw 0;
+    padding: 5px 13vw 0;
     display: flex;
     height: 100vh;
   }
 
   .message-inner .message-left-content {
-    flex: 1.5;
+    flex: 1;
   }
 
   .message-inner .message-right-content {
-    flex: 1;
+    flex: 1.2;
   }
 
   @media screen and (max-width: 1000px) {
@@ -39,7 +39,9 @@
   @media screen and (max-width: 768px) {
     .message-inner {
       flex-direction: column;
+      height: 100%;
     }
+
     .message-inner .message-left-content {
       flex: 0;
     }

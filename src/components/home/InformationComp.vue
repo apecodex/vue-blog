@@ -32,7 +32,7 @@
             <span>支付宝</span>
           </div>
         </div>
-        <div class="erweima-btn" @click="supportShowBtn"><i class="fa fa-thumbs-up fa-fw" aria-hidden="true"></i>支持</div>
+        <div class="erweima-btn" @click.stop="supportShowBtn"><i class="fa fa-thumbs-up fa-fw" aria-hidden="true"></i>支持</div>
       </div>
     </div>
   </div>
@@ -64,6 +64,13 @@
 
   const supportShowBtn = () => {
     supportShow.value = !supportShow.value
+  }
+
+  // 点击其他地方关闭支持窗口
+  document.body.onclick = () => {
+    if (supportShow.value) {
+      supportShow.value = !supportShow.value
+    }
   }
 </script>
 

@@ -32,7 +32,7 @@ export default {
     background: rgba(0, 0, 0, .3);
     display: flex;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 4px;
     margin-top: 5px;
   }
 
