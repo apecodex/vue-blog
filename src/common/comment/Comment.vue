@@ -13,7 +13,7 @@
                       @changeEmojiFlag="changeEmojiFlag" ></comment-area>
       </template>
       <template #emoji>
-        <emoji @getEmoji='getEmoji' />
+        <emoji @getEmoji='getEmoji'/>
       </template>
     </comment-container>
   </div>

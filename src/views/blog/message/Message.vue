@@ -16,7 +16,7 @@
     <template #rightContent>
       <message-right-content>
         <template #messageShow>
-          <message-show></message-show>
+          <comment-show></comment-show>
         </template>
       </message-right-content>
     </template>
@@ -30,12 +30,7 @@
   import Comment from 'common/comment/Comment.vue'  // 评论组件
 
   import MessageRightContent from 'components/message/MessageRightContent.vue' // 右侧留言展示
-  import MessageShow from 'components/message/childrens/MessageShow.vue';
-
-
-
-
-
+  import CommentShow from 'common/commentShow/CommentShow.vue';
 
 
   const submit = (e, a) => {

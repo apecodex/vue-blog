@@ -13,7 +13,14 @@
         </div>
         <div class="message-btn-box">
           <button class="reply-btn" @click="openReply">评论 (<span class="reply-num">3000</span>)</button>
-          <button class="reply-btn">回复</button>
+          <button class="reply-btn" @click="openComment">回复</button>
+        </div>
+        <div class="comment-box" v-if="commentShow">
+          <comment rows="5"
+                   actionUrl=""
+                   method="get"
+                   :submitFunc="submit"
+                   btnText="留言" />
         </div>
         <div class="reply-content" v-show="replyShow">
           <div class="reply-box box-border-white">
@@ -27,7 +34,14 @@
             <p class="content">Text</p>
           </div>
           <div class="message-btn-box">
-            <button class="reply-btn">回复</button>
+            <button class="reply-btn" @click="openReplyComment">回复</button>
+          </div>
+          <div class="reply-comment" v-if="replyCommentShow">
+            <comment rows="5"
+                     actionUrl=""
+                     method="get"
+                     :submitFunc="submit"
+                     btnText="留言"/>
           </div>
         </div>
       </li>
@@ -37,19 +51,38 @@
 
 <script setup>
   import {ref} from "vue";
+  import Comment from 'common/comment/Comment.vue'
 
   import { color } from 'utils/utils.js'
 
   const replyShow = ref(false)
+  const commentShow = ref(false)
+  const replyCommentShow = ref(false)
 
   const openReply = () => {
     replyShow.value = !replyShow.value
   }
+
+  const openComment = () => {
+    commentShow.value = !commentShow.value
+  }
+
+  const openReplyComment = () => {
+    replyCommentShow.value = !replyCommentShow.value
+  }
+
+  const submit = (e, a) => {
+    console.log("do some");
+    console.log(a);
+
+    e.preventDefault()
+  }
+
 </script>
 
 <style scoped>
 
-@import url('assets/css/common/common.css');
+  @import url('assets/css/common/common.css');
   .message-show-inner,
   .message-show-inner .message-show-item .reply-content {
     padding-left: 70px;

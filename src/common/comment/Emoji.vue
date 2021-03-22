@@ -1,7 +1,7 @@
 <template>
   <div class="emoji-box">
     <button @click.stop="openEmoji">{{entitiestoUtf16('&#128512;')}}</button> 
-    <div class="emoji-item" v-show="emojiItemStatus">
+    <div class="emoji-item" v-show="emojiStatus" ref="showPanel">
       <ul>
         <li v-for="(item, index) in emojis" :key="index" @click="emojiItem(item)"><span>{{entitiestoUtf16(item)}}</span></li>
       </ul>
@@ -10,13 +10,25 @@
 </template>
 
 <script setup>
-  import { ref, defineEmit } from "vue";
+  import { ref, defineEmit, onMounted} from "vue";
 
   import { utf16toEntities, entitiestoUtf16 } from "utils/utils.js"
 
   const emit = defineEmit(['getEmoji'])
 
-  const emojiItemStatus = ref(false)
+  const emojiStatus = ref(false)
+  const showPanel = ref(null)
+
+  // 点击其他地方关闭表情包
+  onMounted(() => {
+    document.addEventListener('click',()=>{
+      if(showPanel.value){
+        if(emojiStatus.value){
+          emojiStatus.value = false
+        }
+      }
+    })
+  })
 
   const emojis = ref([
     '&#128512;','&#128516;','&#127773;','&#128517;','&#129315;','&#128514;','&#128521;',
@@ -29,18 +41,12 @@
   ])
 
   const openEmoji = () => {
-    emojiItemStatus.value = !emojiItemStatus.value
-  }
-
-  // 点击其他地方关闭emoji窗口
-  document.body.onclick = () => {
-    if (emojiItemStatus.value) {
-      emojiItemStatus.value = !emojiItemStatus.value
-    }
+    emojiStatus.value = !emojiStatus.value
   }
 
   const emojiItem = emoji => {
     emit('getEmoji', emoji)
+    emojiStatus.value = !emojiStatus.value
   }
 </script>
 
@@ -59,7 +65,7 @@
 
   .emoji-item {
     position: absolute;
-    bottom: 100%;
+    bottom: 110%;
     left: 0;
     right: 0;
     width: 200px;
