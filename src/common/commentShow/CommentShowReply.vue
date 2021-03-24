@@ -7,7 +7,7 @@
     <div class="h10"></div>
     <p class="content">{{ text }}</p>
   </div>
-  <div class="message-btn-box">
+  <div class="comment-btn-box">
     <button class="reply-btn" @click="openReplyComment">回复</button>
   </div>
   <div class="reply-comment" v-if="replyCommentShow">

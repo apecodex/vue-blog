@@ -1,26 +1,28 @@
 <template>
   <div class="message-show-container">
-    <ul class="message-show-inner">
-      <li class="message-show-item box-border-white">
-        <div class="item-box">
-          <div class="head"><img src="~assets/img/head.jpg" alt=""></div>
-          <span class="username" :style="{'color': color()}">apecode</span>
-          <span class="time">2021·3·21</span>
-          <div class="h10"></div>
-          <p class="content">Text</p>
-          <p class="content">Text</p>
-          <p class="content">Text</p>
-        </div>
-        <div class="message-btn-box">
-          <button class="reply-btn" @click="openReply">评论 (<span class="reply-num">3000</span>)</button>
-          <button class="reply-btn" @click="openComment">回复</button>
-        </div>
-        <div class="comment-box" v-if="commentShow">
-          <comment rows="5"
-                   actionUrl=""
-                   method="get"
-                   :submitFunc="submit"
-                   btnText="留言" />
+    <div class="message-show-inner">
+      <div class="message-show-item box-border-white">
+        <div class="">
+          <div class="item-box">
+            <div class="head"><img src="~assets/img/head.jpg" alt=""></div>
+            <span class="username" :style="{'color': color()}">apecode</span>
+            <span class="time">2021·3·21</span>
+            <div class="h10"></div>
+            <p class="content">Text</p>
+            <p class="content">Text</p>
+            <p class="content">Text</p>
+          </div>
+          <div class="message-btn-box">
+            <button class="reply-btn" @click="openReply">评论 (<span class="reply-num">3000</span>)</button>
+            <button class="reply-btn" @click="openComment">回复</button>
+          </div>
+          <div class="comment-box" v-if="commentShow">
+            <comment rows="5"
+                     actionUrl=""
+                     method="get"
+                     :submitFunc="submit"
+                     btnText="留言" />
+          </div>
         </div>
         <div class="reply-content" v-show="replyShow">
           <div class="reply-box box-border-white">
@@ -44,8 +46,8 @@
                      btnText="留言"/>
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 

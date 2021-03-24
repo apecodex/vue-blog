@@ -1,4 +1,7 @@
 <template>
+  <transition name="fade">
+    <loading v-if="isLoading"></loading>
+  </transition>
   <div class="home-container">
     <home-container>
       <!-- 通知 -->
@@ -106,6 +109,8 @@
 </template>
 
 <script setup>
+  import loading from 'components/loader/loading.vue'
+
   import HomeContainer from 'common/container/HomeContainer.vue'
   import Notice from 'components/home/Notice.vue'
   import ArticleComp from 'components/home/ArticleComp.vue'
@@ -117,7 +122,14 @@
   import HotTag from 'components/home/hotTag/HotTag.vue'
   import FriendLink from 'components/home/friendLink/FriendLink.vue'
 
-  import { reactive, ref } from 'vue'
+  import {onMounted, reactive, ref} from 'vue'
+
+  // 加载loader...
+  const isLoading = ref(true)
+  onMounted(() => {
+    isLoading.value = !isLoading.value
+  })
+
   const information = reactive({
     head: 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg',
     author: 'apecode',

@@ -1,18 +1,18 @@
 
-.message-show-inner,
-.message-show-inner .message-show-item .reply-content {
+.comment-show-inner,
+.comment-show-inner .comment-show-item .reply-content {
     padding-left: 70px;
 }
 
-.message-show-inner .message-show-item,
-.message-show-inner .message-show-item .reply-content .reply-box {
+.comment-show-inner .comment-show-item,
+.comment-show-inner .comment-show-item .reply-content .reply-box {
     position: relative;
     min-height: 60px;
     margin-bottom: 15px;
 }
 
-.message-show-inner .item-box .head,
-.message-show-inner .message-show-item .reply-content .reply-box .head {
+.comment-show-inner .item-box .head,
+.comment-show-inner .comment-show-item .reply-content .reply-box .head {
     position: absolute;
     top: 0;
     right: 100%;
@@ -20,30 +20,30 @@
     height: 60px;
 }
 
-.message-show-inner .item-box .head img,
-.message-show-inner .message-show-item .reply-content .reply-box .head img {
+.comment-show-inner .item-box .head img,
+.comment-show-inner .comment-show-item .reply-content .reply-box .head img {
     height: 100%;
     border-radius: 50%;
     border: 1px solid rgba(0,0,0,.5);
     transition: .3s ease-in-out;
 }
 
-.message-show-inner .item-box .head img:hover,
-.message-show-inner .message-show-item .reply-content .reply-box .head img:hover {
+.comment-show-inner .item-box .head img:hover,
+.comment-show-inner .comment-show-item .reply-content .reply-box .head img:hover {
     border: 1px solid rgba(0,0,0,1);
     transform: rotate(360deg);
 }
 
 /* 用户名 */
-.message-show-inner .item-box .username,
-.message-show-inner .message-show-item .reply-content .reply-box .username {
+.comment-show-inner .item-box .username,
+.comment-show-inner .comment-show-item .reply-content .reply-box .username {
     font-size: 20px;
     font-weight: bold;
 }
 
 /* 时间 */
-.message-show-inner .item-box .time,
-.message-show-inner .message-show-item .reply-content .reply-box .time{
+.comment-show-inner .item-box .time,
+.comment-show-inner .comment-show-item .reply-content .reply-box .time{
     font-weight: bold;
     color: #6e0832;
     float: right;
@@ -55,14 +55,14 @@
 }
 
 /* 内容 */
-.message-show-inner p.content,
-.message-show-inner .message-show-item .reply-content .reply-box p.content {
+.comment-show-inner p.content,
+.comment-show-inner .comment-show-item .reply-content .reply-box p.content {
     font-size: 18px;
     font-weight: 500;
 }
 
 /* 评论按钮 */
-.message-show-inner .message-show-item .message-btn-box {
+.comment-show-inner .comment-show-item .comment-btn-box {
     margin: 10px 0;
     padding: 5px 0;
     background: rgba(0,0,0,.6);
@@ -71,7 +71,7 @@
     justify-content: flex-end;
 }
 
-.message-show-inner .message-show-item .message-btn-box button.reply-btn {
+.comment-show-inner .comment-show-item .comment-btn-box button.reply-btn {
     margin-right: 10px;
     padding: 3px 5px;
     border: 0;
@@ -84,29 +84,29 @@
     transition: .5s ease;
 }
 
-.message-show-inner .message-show-item .message-btn-box button.reply-btn > .reply-num {
+.comment-show-inner .comment-show-item .comment-btn-box button.reply-btn > .reply-num {
     color: #f0c688;
     padding: 0 2px;
 }
 
-.message-show-inner .message-show-item .message-btn-box button.reply-btn:hover {
+.comment-show-inner .comment-show-item .comment-btn-box button.reply-btn:hover {
     border-top: 1px dotted #ffffff;
     border-bottom: 1px dotted #ffffff;
     color: orangered;
 }
 
 @media screen and (max-width: 1000px) {
-    .message-show-inner,
-    .message-show-inner .message-show-item .reply-content {
+    .comment-show-inner,
+    .comment-show-inner .comment-show-item .reply-content {
         padding-left: 0;
     }
 
-    .message-show-inner .item-box {
+    .comment-show-inner .item-box {
         position: relative;
     }
 
-    .message-show-inner .item-box .head,
-    .message-show-inner .message-show-item .reply-content .reply-box .head {
+    .comment-show-inner .item-box .head,
+    .comment-show-inner .comment-show-item .reply-content .reply-box .head {
         position: relative;
         right: 0;
         margin: 0 auto;

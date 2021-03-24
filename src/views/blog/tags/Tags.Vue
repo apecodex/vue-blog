@@ -1,4 +1,7 @@
 <template>
+  <transition name="fade">
+    <loading v-if="isLoading"></loading>
+  </transition>
   <div class="tag">
     <tag-container>
       <template #content>
@@ -9,12 +12,20 @@
 </template>
 
 <script setup>
-  import { ref } from "vue"
+import {onMounted, ref} from "vue"
 
   import TagContainer from 'components/tags/TagContainer.vue'
   import TagContent from 'components/tags/TagContent.vue'
+  import loading from 'components/loader/loading.vue'
 
   const tags = ref(['Java', 'Python', "Go", "Linux", 'Servelt', 'Tomcat', '爬虫'])
+
+  // 加载loader...
+  const isLoading = ref(true)
+
+  onMounted(() => {
+    isLoading.value = !isLoading.value
+  })
 </script>
 
 <style scoped>

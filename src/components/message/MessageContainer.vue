@@ -19,7 +19,7 @@
   .message-inner {
     padding: 5px 13vw 0;
     display: flex;
-    height: 100vh;
+    height: 100%;
   }
 
   .message-inner .message-left-content {
