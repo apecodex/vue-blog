@@ -9,6 +9,8 @@ const Message = () => import('views/blog/message/Message.vue')
 const Project = () => import('views/blog/project/Project.vue')
 const About = () => import('views/blog/about/About.vue')
 
+const PageError = () => import('components/error/PageError.vue')
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -59,6 +61,14 @@ const router = createRouter({
     {
       path: '/about',
       component: About
+    },
+    {
+      path: '/404',
+      name: "NotFound",
+      component: PageError
+    }, {
+      path: "/:catchAll(.*)", // 此处需特别注意置于最底部
+      redirect: "/404"
     }
   ]
 });
