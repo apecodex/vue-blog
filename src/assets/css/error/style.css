@@ -55,7 +55,7 @@
   margin-bottom: 100px;
 }
 
-.cat-container .content a {
+.cat-container .content button {
   position: relative;
   display: inline-block;
   padding: 10px 25px;
@@ -66,9 +66,18 @@
   font-size: 22px;
   text-decoration: none;
   border-radius: 25px;
+  border: 0;
+  outline: none;
   border-bottom: 4px solid #d00d56;
   border-left: 2px solid #d00d56;
   border-right: 2px solid #d00d56;
+}
+
+.cat-container .content button:hover {
+  background: #d682a2;
+  border-bottom: 4px solid #c86887;
+  border-left: 2px solid #c86887;
+  border-right: 2px solid #c86887;
 }
 
 @media screen and (max-width: 1200px) {

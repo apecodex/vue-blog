@@ -1,0 +1,242 @@
+.about-container {
+  background: url(src/assets/img/runBear/bg-container-b19993e.png) repeat-x;
+  height: 100vh;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 1);
+}
+
+.bg-space {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(src/assets/img/runBear/bg-space-6e69cd1.png);
+  transform: translate3d(0, 0, 0);
+  animation: moving 460s linear 0.8s infinite normal none;
+}
+.bg-mountain1 {
+  z-index: 2;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 336px;
+  background-image: url(src/assets/img/runBear/bg-mountain-1-11661c6.png);
+  background-repeat: no-repeat;
+  animation: bg 40s linear infinite;
+}
+.bg-mountain2 {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 384px;
+  background-image: url(src/assets/img/runBear/bg-mountain-2-f8a4360.png);
+  background-repeat: no-repeat;
+  opacity: .1;
+  animation: bg 50s linear infinite;
+}
+.bg-mountain3 {
+  z-index: 1;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 569px;
+  background-image: url(src/assets/img/runBear/bg-mountain-3-54c28fd.png);
+  background-repeat: no-repeat;
+  opacity: .5;
+  animation: bg 70s linear infinite;
+}
+.bear {
+  z-index: 3;
+  position: absolute;
+  bottom: -40px;
+
+  left: 0;
+  width: 200px;
+  height: 120px;
+  background-image: url(src/assets/img/runBear/bear-25676f9.png);
+  background-repeat: no-repeat;
+  transform: translateX(-50%);
+  animation: bear 0.8s steps(8)infinite, move 6s forwards .2s;
+}
+.scene {
+  margin: 5px auto;
+  width: 246px;
+  height: 268px;
+  background: url(src/assets/img/runBear/bg-scene-2-icon-d74291a.png) no-repeat;
+  animation: sceneMove 5s ease-in-out infinite;
+}
+.scene p {
+  text-align: center;
+  line-height: 600px;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-family: sans-serif;
+}
+.scene p em {
+  font-style: normal;
+  color: red;
+  font-size: 60px;
+}
+.scene span {
+  color: #ff0000;
+  font-size: 50px;
+  width: 1px;
+  height: 52px;
+  border-left: 1px dashed rgba(0,0,0,.6);
+  position: absolute;
+  bottom: -50px;
+  left: 130px;
+  transform-origin: top;
+  animation: swing 5s ease-in-out infinite;
+  transition: .5s ease;
+  cursor: url('assets/cursor/mouse2.cur'), auto;
+  z-index: 999;
+}
+
+.scene span::after {
+  position: absolute;
+  top: 52px;
+  left: -40px;
+  text-align: center;
+  line-height: 80px;
+  display: block;
+  content: "♥";
+  width: 80px;
+  height: 80px;
+  background: rgba(103, 99, 99, 0.15);
+  background-size: 100% 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  z-index: 999;
+}
+
+.scene span:hover {
+  font-size: 70px;
+}
+
+.about-content {
+  position: absolute;
+  top: 45%;
+  left: 20%;
+  right: 20%;
+  z-index: 9;
+  transition: all .5s ease;
+}
+
+.about-content .about-close {
+  display: block;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-content .about-close span {
+  margin-top: 2px;
+}
+
+.about-content .about-close i {
+  font-size: 22px;
+}
+
+.about-content p {
+  margin-bottom: 5px;
+  padding: 2px;
+  font-weight: 600;
+  border-radius: 4px;
+  color: burlywood;
+}
+.about-content p:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: orangered;
+}
+
+@keyframes swing {
+  0% {
+      transform: rotate(-60deg);
+  }
+  50% {
+      transform: rotate(60deg);
+  }
+  100% {
+      transform: rotate(-60deg);
+  }
+}
+
+@keyframes moving {
+  from {
+      background-position: 0,0;
+  }
+  to {
+      background-position: -1200px,0;
+  }
+}
+@keyframes bg {
+  from {
+      background-position: 0, 0;
+  }
+  to {
+      background-position: -1200px,0;
+  }
+}
+@keyframes bear {
+  from {
+      background-position: 0, 0;
+  }
+  to {
+      background-position: -1600px, 0;
+  }
+}
+@keyframes move {
+  from {
+      left: 0;
+  }
+  to {
+      left: 50%;
+  }
+}
+@keyframes sceneMove {
+  0% {
+      transform: translate(0);
+  }
+  50% {
+      transform: translate(0,26px);
+  }
+  100% {
+      transform: translate(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .scene span {
+    font-size: 30px;
+  }
+
+  .scene span:hover {
+    font-size: 50px;
+  }
+
+  .bg-mountain1 {
+    height: 256px;
+  }
+  .bg-mountain2 {
+    height: 296px;
+  }
+  .bg-mountain3 {
+    height: 406px;
+  }
+  .about-content {
+    top: 30%;
+    left: 5%;
+    right: 5%;
+  }
+}

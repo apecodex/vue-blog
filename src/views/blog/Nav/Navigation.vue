@@ -2,7 +2,9 @@
   <transition name="fade">
     <loading v-if="isLoading"></loading>
   </transition>
-  <h1>Project</h1>
+  <h1>Nav</h1>
+  <v-md-editor v-model="text" @save="save"></v-md-editor>
+  <v-md-preview :text="text"></v-md-preview>
 </template>
 
 <script setup>
@@ -16,6 +18,12 @@
   onMounted(() => {
     isLoading.value = !isLoading.value
   })
+
+  const text = ref('')
+
+  const save = (text, html) => {
+    console.log(text, html)
+  }
 </script>
 
 <style>

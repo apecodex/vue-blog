@@ -6,7 +6,7 @@ const Archive = () => import('views/blog/acnav/archive/Archive.vue')
 const Category = () => import('views/blog/acnav/category/Category.vue')
 const Tags = () => import('views/blog/tags/Tags.vue')
 const Message = () => import('views/blog/message/Message.vue')
-const Project = () => import('views/blog/project/Project.vue')
+const Navigation = () => import('views/blog/Nav/Navigation.vue')
 const About = () => import('views/blog/about/About.vue')
 
 const PageError = () => import('components/error/PageError.vue')
@@ -55,8 +55,8 @@ const router = createRouter({
       component: Message
     },
     {
-      path: '/project',
-      component: Project
+      path: '/nav',
+      component: Navigation
     },
     {
       path: '/about',
