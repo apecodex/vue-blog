@@ -23,24 +23,6 @@
 <style scoped>
   .blog-container {
     height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-
-
-  .blog-container-hidden {
-    overflow-y: scroll;
-
-  }
-
-  .blog-container-hidden::-webkit-scrollbar {
-    width: 10px;
-  }
-  .blog-container-hidden::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
-    background-image: url('assets/img/scrollbar.png');
-    background-clip: border-box;
   }
 
   header {
@@ -67,5 +49,11 @@
     position: relative;
     background-color: #eee;
     box-shadow:  0 0 5px 2px rgba(0, 0, 0, .3);
+  }
+
+  @media screen and (max-width: 1000px) {
+    .blog-container {
+      width: 100vw;
+    }
   }
 </style>

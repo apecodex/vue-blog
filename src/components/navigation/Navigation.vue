@@ -46,19 +46,34 @@
 </template>
 
 <script setup>
-  import { ref, defineProps, inject } from 'vue'
+  import { ref, defineProps, inject, provide } from 'vue'
 
   const checkBurger = inject('checkBurger')
   const updateCheckBurger = inject('updateCheckBurger')
 
   const props = defineProps({
-    logo: String
+    logo: String,
   });
+
+  // 是否点击了菜单
+  const clickItem = t => {
+    burger.value = !burger.value
+    document.querySelector('.blog-container').removeAttribute('style')
+  }
+
+  provide('clickItem', clickItem)
+
 
   const burger = ref(false)
   const navMenuRef = ref('')
   const burgerBtn = () => {
     burger.value = !burger.value
+    // 打开菜单锁定屏幕，需要关闭菜单才能解锁
+    if (burger.value) {
+      document.querySelector('.blog-container').style.overflow = 'hidden'
+    } else {
+      document.querySelector('.blog-container').style.overflow = 'visible'
+    }
     // 更新检查点击
     updateCheckBurger(!checkBurger.value)
     for (let index = 0; index < navMenuRef.value.children.length; index++) {

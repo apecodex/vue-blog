@@ -154,6 +154,7 @@
 @media screen and (max-width: 1000px) {
   .navigation {
     padding: 0 1vw;
+    overflow-x: hidden;
   }
   ::-webkit-scrollbar  
   {  
@@ -163,7 +164,7 @@
   }
 
   .nav-menu {
-    position: absolute;
+    position: fixed;
     top: 80px;
     right: 0;
     bottom: 0;
@@ -177,8 +178,6 @@
     
     transform: translateX(100%);
     transition: .6s ease-in-out;
-    /* box-shadow: 0 15px 5px 5px rgba(65, 81, 101, .7); */
-
   }
 
   .nav-menu.open {

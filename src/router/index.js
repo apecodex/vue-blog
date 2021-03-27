@@ -8,6 +8,7 @@ const Tags = () => import('views/blog/tags/Tags.vue')
 const Message = () => import('views/blog/message/Message.vue')
 const Navigation = () => import('views/blog/Nav/Navigation.vue')
 const About = () => import('views/blog/about/About.vue')
+const Article = () => import('views/blog/article/Article.vue')
 
 const PageError = () => import('components/error/PageError.vue')
 
@@ -20,6 +21,7 @@ const router = createRouter({
     },
     {
       path: '/home',
+      name: 'Home',
       redirect: '/'
     },
     {
@@ -28,14 +30,17 @@ const router = createRouter({
       children: [
         {
           path: '/acnav',
+          name: 'AcNav',
           redirect: '/acnav/archive'
         },
         {
           path: '/acnav/archive',
+          name: 'Archive',
           component: Archive
         },
         {
           path: '/acnav/category',
+          name: 'Category',
           component: Category
         }
       ]
@@ -46,21 +51,30 @@ const router = createRouter({
       children: [
         {
           path: '/tags/:tag',
+          name: 'Tags',
           component: Tags,
         }
       ]
     },
     {
       path: '/message',
+      name: 'Message',
       component: Message
     },
     {
       path: '/nav',
+      name: 'Nav',
       component: Navigation
     },
     {
       path: '/about',
+      name: 'About',
       component: About
+    },
+    {
+      path: '/article/:id',
+      name: 'Article',
+      component: Article
     },
     {
       path: '/404',

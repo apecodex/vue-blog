@@ -4,16 +4,18 @@
         <i :class="itemIcon"></i>
       </div>
       <div class="nav-item-text">
-        {{itemText}}
+        {{ itemText }}
       </div>
     </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, inject } from 'vue'
 import { useRouter } from "vue-router";
 
 const router = useRouter()
+
+const clickItem = inject('clickItem')
 
 const props = defineProps({
   itemIcon: String,
@@ -25,6 +27,8 @@ const props = defineProps({
 const itemBtn = () => {
   // 跳转对应的路由
   router.push(props.path)
+  // 点击关闭菜单
+  clickItem()
 }
 </script>
 
