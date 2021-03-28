@@ -1,6 +1,6 @@
 <template>
 
-  <div class="blog-container" :class="{'blog-container-hidden': !checkBurger}">
+  <div class="blog-container">
     <header ><slot name="header"/></header>
     <main><slot name="main"/></main>
     <footer><slot name="footer"/></footer>
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-  import { provide, ref, computed } from 'vue'
+  import { provide, ref } from 'vue'
 
   // 检查是否点击了菜单
   const checkBurger = ref(false)

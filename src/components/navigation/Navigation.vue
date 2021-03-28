@@ -58,7 +58,7 @@
   // 是否点击了菜单
   const clickItem = t => {
     burger.value = !burger.value
-    document.querySelector('.blog-container').removeAttribute('style')
+    document.querySelector('.blog-container').style.overflow = 'visible'
   }
 
   provide('clickItem', clickItem)

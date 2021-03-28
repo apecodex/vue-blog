@@ -7,7 +7,7 @@
           <navigation-item path="/acnav" itemIcon="fa fa-archive archive" itemText="归档&分类"/>
           <navigation-item path="/tags" itemIcon="fa fa-tags tags" itemText="标签"/>
           <navigation-item path="/message" itemIcon="fa fa-comments message" itemText="留言"/>
-          <navigation-item path="/nav" itemIcon="fa fa-th-list project" itemText="导航"/>
+          <navigation-item path="/navlink" itemIcon="fa fa-th-list project" itemText="导航"/>
           <navigation-item path='/about' itemIcon="fa fa-male about" itemText="关于我"/>
         </template>
       </navigation>

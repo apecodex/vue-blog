@@ -21,6 +21,7 @@
 
   @media screen and (max-width: 1000px) {
     .ac-nav-container {
+      padding: 5px 5vw 0;
       height: 100%;
     }
   }

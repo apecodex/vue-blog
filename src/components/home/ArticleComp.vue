@@ -29,10 +29,10 @@
         </ul>
       </div>
       <div class="article-title">
-        <a :href="articleId"><span class="box-rubber-band">{{articleTitle}}</span></a>
+        <a :href="'article/' + articleId"><span class="box-rubber-band">{{articleTitle}}</span></a>
       </div>
       <div class="article-img">
-        <a :href="articleId">
+        <a :href="'article/' + articleId">
           <img src="~assets/img/bg.png" alt="articleTitle">
         </a>
       </div>

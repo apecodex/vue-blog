@@ -1,7 +1,7 @@
 <template>
   <div class="tag-content">
     <ul>
-      <li :style="{'background': bgColor[index]}" v-for="(item, index) in tags" :key="index">
+      <li :style="{'background': color()}" v-for="(item, index) in tags" :key="index">
         {{item}}
       </li>
     </ul>
@@ -10,13 +10,13 @@
 
 <script setup>
   import { defineProps, ref } from 'vue'
+  import { color } from 'utils/utils.js'
+
 
   const props = defineProps({
     tags: Array
   });
-  
-  const bgColor = ref(['#3F51B5', '#E53935', '#E91E63', '#673AB7', '#03A9F4', '#00BCD4', '#26A69A', '#66BB6A', '#9CCC65', '#D4E157',
-                      '#FFEE58', '#FFCA28', '#FF9800', '#FF5722', '#795548', '#CFD8DC', '#880E4F', '#B71C1C', '#1A237E', '#006064']);
+
 </script>
 
 <style scoped>

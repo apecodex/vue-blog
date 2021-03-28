@@ -18,6 +18,7 @@ export default {
 
   @media screen and (max-width: 1000px) {
     .tag-container {
+      padding: 0 5vw;
       height: 100%;
     }
   }

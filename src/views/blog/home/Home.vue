@@ -15,7 +15,7 @@
                       :read="3000"
                       :comment="3000"
                       :like="3000"
-                      articleId="###"
+                      articleId="aaa"
                       articleTitle="我的第一篇博客"
                       articleImg="###"/>
         <article-comp :datetime="new Date()"
@@ -23,7 +23,7 @@
                       :read="528"
                       :comment="300"
                       :like="430"
-                      articleId="##"
+                      articleId="bbb"
                       articleTitle="我的第二篇博客"
                       articleImg="##"/>
       </template>
@@ -154,7 +154,7 @@
 
   @media screen and (max-width: 1000px) {
     .home-container {
-      padding: 0 5vw;
+      padding: 0 0;
     }
   }
 

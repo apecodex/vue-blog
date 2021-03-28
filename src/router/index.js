@@ -6,7 +6,7 @@ const Archive = () => import('views/blog/acnav/archive/Archive.vue')
 const Category = () => import('views/blog/acnav/category/Category.vue')
 const Tags = () => import('views/blog/tags/Tags.vue')
 const Message = () => import('views/blog/message/Message.vue')
-const Navigation = () => import('views/blog/Nav/Navigation.vue')
+const NavLink = () => import('views/blog/navlink/NavLink.vue')
 const About = () => import('views/blog/about/About.vue')
 const Article = () => import('views/blog/article/Article.vue')
 
@@ -62,9 +62,9 @@ const router = createRouter({
       component: Message
     },
     {
-      path: '/nav',
-      name: 'Nav',
-      component: Navigation
+      path: '/navlink',
+      name: 'navlink',
+      component: NavLink
     },
     {
       path: '/about',

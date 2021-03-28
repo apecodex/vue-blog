@@ -23,14 +23,22 @@
   box-sizing: border-box;
 }
 
+/* Firebox 滚动条*/
+* {
+  scrollbar-color: #60509f #8ba9c6; /* 滑块颜色  滚动条背景颜色 */
+  scrollbar-width: thin; /* 滚动条宽度有三种：thin、auto、none */
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
   color: var(--color-text);
   z-index: 999999;
   cursor: url('assets/cursor/mouse1.cur'), auto;
+
 }
 
+/* google and edge 滚动条*/
 body::-webkit-scrollbar {
   width: 10px;
 }

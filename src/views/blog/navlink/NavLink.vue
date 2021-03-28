@@ -2,29 +2,26 @@
   <transition name="fade">
     <loading v-if="isLoading"></loading>
   </transition>
-  <article-comp></article-comp>
+  <h1>Nav</h1>
 </template>
 
 <script setup>
-  import { useRouter, useRoute } from 'vue-router'
-  import {onMounted, ref} from "vue";
-
   import loading from 'components/loader/loading.vue'
-  import ArticleComp from 'components/article/ArticleComp.vue'
-
-  const router = useRouter()
-  const route = useRoute()
-
 
   // 加载loader...
+  import {onMounted, ref} from "vue";
+
   const isLoading = ref(true)
 
   onMounted(() => {
     isLoading.value = !isLoading.value
   })
 
+  // const save = (text, html) => {
+  //   console.log(text, html)
+  // }
 </script>
 
-<style scoped>
+<style>
 
 </style>
