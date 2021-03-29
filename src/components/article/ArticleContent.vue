@@ -8,24 +8,38 @@
       <ul class="article-nav-ul" v-show="navShow">
         <li v-for="anchor in titles"
             :style="{ padding: `5px 0 5px ${anchor.indent * 15}px` }"
-            @click.prevent="handleAnchorClick(anchor)" :data-title="anchor.title" :data-index="anchor.lineIndex">
+            @click.prevent="handleAnchorClick(anchor)" :data-scroll="anchor.scroll">
           <a style="cursor: pointer" href="#">{{ anchor.title }}</a></li>
       </ul>
       </div>
     <div class="article-main box-border-white">
+      <article-header :title="title" :time="time" :tagLink="tagLink" :tagName="tagName" :categoryLink="categoryLink" :categoryName="categoryName" :eye="eye"></article-header>
       <v-md-editor v-model="text" mode="preview" ref="editor"></v-md-editor>
     </div>
   </div>
 </template>
 
 <script setup>
-import {onMounted, onBeforeUnmount, nextTick, ref} from 'vue'
+import {onMounted, onBeforeUnmount, nextTick, ref, defineProps} from 'vue'
+import ArticleHeader from 'components/article/ArticleHeader.vue'
 
 const navDom = ref(null);
 const navShow = ref(false)
 
 const editor = ref(null)
-const titles = ref([])
+const titles = ref([])  // 获取所有h标签
+
+const props = defineProps({
+  title: String,  // 文章标题
+  time: String,  // 发布时间
+  tagLink: String,  // 标签链接
+  tagName: String,  // 标签名称
+  categoryLink: String,  // 分类链接
+  categoryName: String,  // 分类名称
+  eye: Number,  // 已查看数量
+  text: String // 文章内容
+})
+
 
 onMounted(() => {
   nextTick(() => {
@@ -47,6 +61,14 @@ onMounted(() => {
     lineIndex: el.getAttribute('data-v-md-line'),
     indent: hTags.indexOf(el.tagName),
   }));
+
+  // 获取滚动的位置
+  for (let t of titles.value) {
+    const heading = editor.value.$el.querySelector(
+        `.v-md-editor-preview [data-v-md-line="${t.lineIndex}"]`
+    );
+    t['scroll'] = heading.offsetTop + 400
+  }
 })
 
 const handleAnchorClick = (anchor) => {
@@ -68,7 +90,26 @@ onBeforeUnmount(() => {
 })
 
 const handleScroll = () => {
+  let temp = []
   let scrollHeight = document.documentElement.scrollTop || document.body.scrollTop; //滚动高度
+
+  for (let t of titles.value) {
+    document.querySelector(
+        `.article-nav-ul [data-scroll="${t.scroll}"]`
+    ).style.background = 'transparent'
+    if (scrollHeight >= t.scroll) {
+      temp[0] = t.scroll
+    }
+  }
+  if (temp.length !== 0) {
+    const list = document.querySelector(
+        `.article-nav-ul [data-scroll="${temp[0]}"]`
+    );
+
+    if (list.getAttribute('data-scroll') == temp[0]) {
+      list.style.background = 'rgba(0,0,0,.6)'
+    }
+  }
   if (scrollHeight <= 307) {
     navDom.value.style.position = 'absolute'
   }
@@ -76,77 +117,11 @@ const handleScroll = () => {
     navDom.value.style.position = 'fixed'
   }
 }
-
+// 展示目录列表
 const navBtn = () => {
   navShow.value = !navShow.value
 }
 
-
-const text = ref('\n' +
-    '# heading 1\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    '\n' +
-    '## heading 2\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    '\n' +
-    '### heading 3\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    '\n' +
-    '## heading 2\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    '\n' +
-    '### heading 3\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +      'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +      'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +      'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +      'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +      'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +      'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    'contentcontentcontent\n' +
-    '')
 </script>
 
 <style>
@@ -174,11 +149,13 @@ const text = ref('\n' +
 
   .article-inner .article-nav ul {
     margin-top: 30px;
-    width: 200px;
-    background: linear-gradient(60deg, rgba(169, 164, 177, 0.3) 0%, rgba(0,172,193,.3) 100%);
+    width: 300px;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.3);
+    background: rgba(0,0,0,.1);
     border-radius: 6px 0 0 6px;
     animation-name: changeWidth;
     animation-duration: 1s;
+    overflow: hidden;
   }
 
   #check {
@@ -186,31 +163,35 @@ const text = ref('\n' +
   }
 
   .article-inner .article-nav ul li {
+    transition: .3s;
   }
 
-  .article-inner .article-nav ul li:hover {
-    background: rgba(0,0,0,.3);
-  }
-  
   .article-inner .article-nav ul li a {
     display: block;
     width: 100%;
     text-indent: .5em;
-    color: crimson;
+    color: #000000;
     font-weight: 600;
+    transition: .3s;
+  }
+
+  .article-inner .article-nav ul li:hover a {
+    color: crimson;
+    font-weight: 900;
+    text-indent: .6em;
   }
 
   .article-inner .article-main {
-    position: relative;
-    flex: 1;
-  }
+      position: relative;
+      flex: 1;
+    }
 
   @keyframes changeWidth {
     from {
       width: 0;
     }
     to {
-      width: 200px;
+      width: 300px;
     }
   }
 
@@ -226,7 +207,8 @@ const text = ref('\n' +
   }
 
   @media screen and (max-width: 768px) {
-    .article-inner .article-nav {
+    .v-md-editor-preview {
+      padding: 10px 0;
     }
   }
 </style>
