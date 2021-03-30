@@ -28,6 +28,7 @@
       </footer-comp>
     </template>
   </blog-container>
+  <vue-live2d homePage="https://github.com/rookiesmile"></vue-live2d>
 </template>
 
 <script setup>
@@ -37,7 +38,7 @@
   import FooterComp from 'components/footer/FooterComp.vue'
   import FooterLeftComp from 'components/footer/FooterLeftComp.vue'
   import FooterRightComp from 'components/footer/FooterRightComp.vue'
-
+  import vueLive2d from 'vue-live2d'
   window.onload = function() {
     document.addEventListener('touchstart', function (event) {
       if (event.touches.length > 1) {
@@ -52,4 +53,24 @@
 
 <style>
   @import url('assets/css/base.css');
+
+  .vue-live2d {
+    position: fixed;
+    bottom: -11px;
+    right: 0;
+    z-index: 999;
+  }
+
+  @media screen and (max-width: 768px){
+    .vue-live2d {
+      width: 200px !important;
+      height: 200px !important;
+    }
+    #vue-live2d-main {
+      width: 160px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
 </style>

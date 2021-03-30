@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-  import { ref, defineEmit, onMounted} from "vue";
+  import { ref, defineEmit, onMounted, onBeforeUnmount} from "vue";
 
   import { utf16toEntities, entitiestoUtf16 } from "utils/utils.js"
 
@@ -21,13 +21,19 @@
 
   // 点击其他地方关闭表情包
   onMounted(() => {
-    document.addEventListener('click',()=>{
-      if(showPanel.value){
-        if(emojiStatus.value){
-          emojiStatus.value = false
-        }
+    document.addEventListener('click', closeEmojiBox)
+  })
+
+  const closeEmojiBox = () => {
+    if(showPanel.value){
+      if(emojiStatus.value){
+        emojiStatus.value = false
       }
-    })
+    }
+  }
+
+  onBeforeUnmount(() => {
+    window.removeEventListener("click", closeEmojiBox);
   })
 
   const emojis = ref([

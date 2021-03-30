@@ -8,6 +8,9 @@
       <span class="year">{{yearHandle}}</span>
     </div>
     <div class="article-content">
+      <div class="article-title">
+        <a :href="'article/' + articleId"><span class="box-rubber-band">{{articleTitle}}</span></a>
+      </div>
       <div class="article-tigs">
         <ul class="article-tigs-list">
           <li class="article-tag box-rubber-band">
@@ -28,9 +31,6 @@
           </li>
         </ul>
       </div>
-      <div class="article-title">
-        <a :href="'article/' + articleId"><span class="box-rubber-band">{{articleTitle}}</span></a>
-      </div>
       <div class="article-img">
         <a :href="'article/' + articleId">
           <img src="~assets/img/bg.png" alt="articleTitle">
@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-  import { ref, defineProps, computed } from 'vue'
+  import { defineProps, computed } from 'vue'
 
   const props = defineProps({
     datetime: Date,

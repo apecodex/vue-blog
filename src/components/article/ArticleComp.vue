@@ -13,6 +13,7 @@
                        :eye="articleData.eye"
 
                        :text="text"></article-content>
+      <article-footer></article-footer>
     </div>
   </section>
 </template>
@@ -20,7 +21,7 @@
 <script setup>
 import loading from 'components/loader/loading.vue'
 import ArticleContent from 'components/article/ArticleContent.vue'
-
+import ArticleFooter from 'components/article/ArticleFooter.vue'
 // 加载loader...
 import {ref, onBeforeMount} from "vue";
 

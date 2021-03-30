@@ -2,7 +2,7 @@
   <transition name="fade">
     <loading v-if="isLoading"></loading>
   </transition>
-  <h1>Nav</h1>
+  <h1>这里是导航页面，暂时不知道要怎么写，先搁着吧</h1>
 </template>
 
 <script setup>
