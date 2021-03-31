@@ -26,8 +26,7 @@
   }
 </script>
 
-<style>
-  @import url('assets/css/common/common.css');
+<style scoped>
   .notice {
     position: relative;
     display: flex;
@@ -47,4 +46,8 @@
     margin: 0 auto;
     right: 15px;
   }
+</style>
+
+<style>
+  @import url('assets/css/common/common.css');
 </style>

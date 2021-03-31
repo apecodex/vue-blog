@@ -46,7 +46,10 @@ import {nextTick, onBeforeUnmount, onMounted, ref} from "vue";
   })
 </script>
 
-<style>
+<style scoped>
+  section {
+    width: 100%;
+  }
   .post-support {
     position: relative;
     display: flex;
@@ -138,6 +141,10 @@ import {nextTick, onBeforeUnmount, onMounted, ref} from "vue";
 
   }
 
+
+</style>
+
+<style>
   @keyframes erweima-move {
     from {
       top: 0;

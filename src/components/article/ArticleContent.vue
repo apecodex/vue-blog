@@ -124,7 +124,7 @@ const navBtn = () => {
 
 </script>
 
-<style>
+<style scoped>
 
 @import url('assets/css/common/common.css');
   .article-inner {
@@ -186,14 +186,6 @@ const navBtn = () => {
       flex: 1;
     }
 
-  @keyframes changeWidth {
-    from {
-      width: 0;
-    }
-    to {
-      width: 300px;
-    }
-  }
 
   @media screen and (max-width: 1000px) {
 
@@ -203,6 +195,23 @@ const navBtn = () => {
 
     .article-inner .article-nav #btn {
       display: none;
+    }
+  }
+
+</style>
+
+<style>
+  .v-md-editor-preview img {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @keyframes changeWidth {
+    from {
+      width: 0;
+    }
+    to {
+      width: 300px;
     }
   }
 

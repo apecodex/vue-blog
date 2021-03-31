@@ -1,10 +1,15 @@
 <template>
   <div class="right-content">
-    <button>Login</button>
+    <button @click="toLogin">Login</button>
   </div>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+  const router = useRouter()
+  const toLogin = () => {
+    router.replace('login')
+  }
 </script>
 
 <style scoped>

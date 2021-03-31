@@ -17,7 +17,7 @@
 <script setup>
 </script>
 
-<style>
+<style scoped>
 
   .loading {
     position: fixed;
@@ -92,6 +92,14 @@
     animation: love1 5s 1.6s infinite;
   }
 
+  @media screen and (max-width: 786px) {
+    ul.loading-ul {
+      margin-top: 200px;
+    }
+  }
+</style>
+
+<style>
   @keyframes love1 {
     30%, 50% {
       height: 60px;
@@ -144,12 +152,6 @@
     70%, 100% {
       height: 20px;
       transform: translateY(0);
-    }
-  }
-
-  @media screen and (max-width: 786px) {
-    ul.loading-ul {
-      margin-top: 200px;
     }
   }
 </style>

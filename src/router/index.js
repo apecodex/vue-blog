@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+const Main = () => import('views/Main.vue')
 const Home = () => import('views/blog/home/Home.vue')
 const ACNav = () => import('views/blog/acnav/acNav.vue')
 const Archive = () => import('views/blog/acnav/archive/Archive.vue')
@@ -10,6 +11,8 @@ const NavLink = () => import('views/blog/navlink/NavLink.vue')
 const About = () => import('views/blog/about/About.vue')
 const Article = () => import('views/blog/article/Article.vue')
 
+const Login = () => import('views/login/Login.vue')
+
 const PageError = () => import('components/error/PageError.vue')
 
 const router = createRouter({
@@ -17,73 +20,81 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: Home
-    },
-    {
-      path: '/home',
-      name: 'Home',
-      redirect: '/'
-    },
-    {
-      path: '/acnav',
-      component: ACNav,
+      component: Main,
       children: [
+        {
+          path: '/home',
+          name: 'Home',
+          redirect: '/',
+        },
         {
           path: '/acnav',
-          name: 'AcNav',
-          redirect: '/acnav/archive'
+          component: ACNav,
+          children: [
+            {
+              path: '/acnav',
+              name: 'AcNav',
+              redirect: '/acnav/archive'
+            },
+            {
+              path: '/acnav/archive',
+              name: 'Archive',
+              component: Archive
+            },
+            {
+              path: '/acnav/category',
+              name: 'Category',
+              component: Category
+            }
+          ]
         },
         {
-          path: '/acnav/archive',
-          name: 'Archive',
-          component: Archive
-        },
-        {
-          path: '/acnav/category',
-          name: 'Category',
-          component: Category
-        }
-      ]
-    },
-    {
-      path: '/tags',
-      component: Tags,
-      children: [
-        {
-          path: '/tags/:tag',
-          name: 'Tags',
+          path: '/tags',
           component: Tags,
-        }
+          children: [
+            {
+              path: '/tags/:tag',
+              name: 'Tags',
+              component: Tags,
+            }
+          ]
+        },
+        {
+          path: '/message',
+          name: 'Message',
+          component: Message
+        },
+        {
+          path: '/navlink',
+          name: 'navlink',
+          component: NavLink
+        },
+        {
+          path: '/about',
+          name: 'About',
+          component: About
+        },
+        {
+          path: '/article/:id',
+          name: 'Article',
+          component: Article
+        },
       ]
     },
     {
-      path: '/message',
-      name: 'Message',
-      component: Message
-    },
-    {
-      path: '/navlink',
-      name: 'navlink',
-      component: NavLink
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About
-    },
-    {
-      path: '/article/:id',
-      name: 'Article',
-      component: Article
+      path: '/login',
+      component: Login
     },
     {
       path: '/404',
       name: "NotFound",
       component: PageError
-    }, {
+    },
+    {
       path: "/:catchAll(.*)", // 此处需特别注意置于最底部
       redirect: "/404"
     }
+
   ]
 });
 
