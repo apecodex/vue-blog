@@ -14,6 +14,12 @@
 
                        :text="text"></article-content>
       <article-footer></article-footer>
+      <div class="hr">有何感想，评论一下吧</div>
+      <comment rows="5"
+               actionUrl=""
+               method="get"
+               :submitFunc="submit"
+               btnText="留言"/>
     </div>
   </section>
 </template>
@@ -22,6 +28,9 @@
 import loading from 'components/loader/loading.vue'
 import ArticleContent from 'components/article/ArticleContent.vue'
 import ArticleFooter from 'components/article/ArticleFooter.vue'
+
+import Comment from 'common/comment/Comment.vue'  // 评论组件
+
 // 加载loader...
 import {ref, onBeforeMount} from "vue";
 
@@ -132,13 +141,33 @@ onBeforeMount(() => {
   isLoading.value = !isLoading.value;
 })
 
+const submit = (e, a) => {
+  console.log("do some");
+  console.log(a);
+
+  e.preventDefault()
+}
 
 </script>
 
 <style scoped>
+
   section.article-container .article-content {
     padding: 0 10vw;
     margin-top: 5px;
+  }
+  section.article-container .article-content .hr {
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 100%;
+    color: crimson;
+    font-size: 20px;
+    font-weight: bolder;
+    border-top: 1px dashed rgba(0,0,0,.3);
+  }
+
+  .article-content > div {
+    margin: 0;
   }
 
   @media screen and (max-width: 768px) {

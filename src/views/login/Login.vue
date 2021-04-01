@@ -1,4 +1,7 @@
 <template>
+  <transition name="fade">
+    <loading v-if="isLoading"></loading>
+  </transition>
   <div class="login-container" ref="container">
     <div class="forms-container">
       <div class="sign-in-sign-up">
@@ -67,17 +70,17 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>New here?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem beatae commodi cum dolorum et harum id in inventore iure maxime molestiae quis, quos rerum sapiente, sit veniam! Est, ex?</p>
-          <button class="btn transparent" id="sign-up-btn" ref="signUpBtn">Sign up</button>
+          <h3>欢迎访问</h3>
+          <p>功能逐渐完善，敬请期待</p>
+          <button class="btn transparent" id="sign-up-btn" ref="signUpBtn">注 册</button>
         </div>
         <img src="~assets/svg/login/login.svg" class="image" alt="">
       </div>
       <div class="panel right-panel">
         <div class="content">
-          <h3>One of us?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem beatae commodi cum dolorum et harum id in inventore iure maxime molestiae quis, quos rerum sapiente, sit veniam! Est, ex?</p>
-          <button class="btn transparent" id="sign-in-btn" ref="signInBtn">Sign in</button>
+          <h3>欢迎欢迎！热烈欢迎</h3>
+          <p>功能逐渐完善，敬请期待</p>
+          <button class="btn transparent" id="sign-in-btn" ref="signInBtn">登 录</button>
         </div>
         <img src="~assets/svg/login/register.svg" class="image" alt="">
       </div>
@@ -86,8 +89,15 @@
 </template>
 
 <script setup>
+  import loading from 'components/loader/loading.vue'
 
   import {ref ,onMounted} from "vue";
+
+  // 加载loader...
+  const isLoading = ref(true)
+  onMounted(() => {
+    isLoading.value = !isLoading.value
+  })
 
   const signUpBtn = ref(null)
   const signInBtn = ref(null)

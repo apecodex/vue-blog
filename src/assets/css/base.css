@@ -25,6 +25,9 @@
 
 /* Firebox 滚动条*/
 * {
+  /* 移动端滚动不流畅 */
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
   scrollbar-color: #60509f #8ba9c6; /* 滑块颜色  滚动条背景颜色 */
   scrollbar-width: thin; /* 滚动条宽度有三种：thin、auto、none */
 }
@@ -35,7 +38,7 @@ body {
   color: var(--color-text);
   z-index: 999999;
   cursor: url('assets/cursor/mouse1.cur'), auto;
-
+  overflow-y: visible;
 }
 
 /* google and edge 滚动条*/

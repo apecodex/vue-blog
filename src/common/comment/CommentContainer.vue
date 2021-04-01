@@ -21,6 +21,7 @@ export default {
 
   .comment-inner {
     margin: 20px 0 0 0;
+    width: 100%;
   }
   .comment-area-container {
     position: relative;

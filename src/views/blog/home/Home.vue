@@ -31,6 +31,10 @@
       <template #search>
         <search-comp />
       </template>
+      <!-- 用户信息 -->
+      <template #user>
+        <user-comp></user-comp>
+      </template>
       <!-- 个人信息 -->
       <template #information>
         <information-comp :head="information.head"
@@ -115,6 +119,7 @@
   import Notice from 'components/home/Notice.vue'
   import ArticleComp from 'components/home/ArticleComp.vue'
   import SearchComp from 'components/home/SearchComp.vue'
+  import UserComp from 'components/home/UserComp.vue'
   import InformationComp from 'components/home/InformationComp.vue'
   import boxComp from 'common/boxComp.vue'
   import CommentsItem from 'components/home/newComments/CommentsItem.vue'
@@ -150,6 +155,7 @@
   .home-container {
     padding: 0 13vw;
     display: flex;
+    z-index: 9999;
   }
 
   @media screen and (max-width: 1000px) {

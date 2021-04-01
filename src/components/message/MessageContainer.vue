@@ -20,6 +20,7 @@
     padding: 5px 13vw 0;
     display: flex;
     height: 100%;
+    z-index: 9999;
   }
 
   .message-inner .message-left-content {

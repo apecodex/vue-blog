@@ -103,7 +103,7 @@ const props = defineProps({
     border-radius: 14px;
     color: #fff;
     font-weight: bolder;
-    z-index: 999;
+    z-index: 9999;
   }
 
   form button:hover {

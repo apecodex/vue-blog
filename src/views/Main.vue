@@ -31,6 +31,7 @@
       </footer-comp>
     </template>
   </blog-container>
+  <top-comp></top-comp>
   <vue-live2d homePage="https://github.com/rookiesmile"></vue-live2d>
 </template>
 
@@ -42,6 +43,9 @@ import NavigationItem from 'components/navigation/NavigationItem.vue'
 import FooterComp from 'components/footer/FooterComp.vue'
 import FooterLeftComp from 'components/footer/FooterLeftComp.vue'
 import FooterRightComp from 'components/footer/FooterRightComp.vue'
+
+import TopComp from 'components/top/TopComp.vue'
+
 import vueLive2d from 'vue-live2d'
 window.onload = function() {
   document.addEventListener('touchstart', function (event) {

@@ -11,6 +11,9 @@
     <div class="search-container">
       <slot name="search"/>
     </div>
+    <div class="user-container">
+      <slot name="user"/>
+    </div>
     <div class="information-container">
       <slot name="information"/>
     </div>
