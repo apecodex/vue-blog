@@ -19,7 +19,7 @@
   bottom: 3%;
   display: flex;
   justify-content: center;
-  background: url("src/assets/img/p404.png"), #151729;
+  background: url("/image/error/p404.png"), #151729;
   border-radius: 6px;
 }
 

@@ -8,7 +8,7 @@ import App from './App.vue'
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 // font-awesome字体图标
-import 'font-awesome/css/font-awesome.min.css'
+// import 'font-awesome/css/font-awesome.min.css'
 
 // 编写markdown
 import VueMarkdownEditor from '@kangc/v-md-editor';

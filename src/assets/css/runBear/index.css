@@ -1,5 +1,5 @@
 .about-container {
-  background: url(src/assets/img/runBear/bg-container-b19993e.png) repeat-x;
+  background: url(/image/runBear/bg-container-b19993e.png) repeat-x;
   height: 100vh;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 1);
 }
@@ -10,8 +10,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  position: absolute;
-  background-image: url(src/assets/img/runBear/bg-space-6e69cd1.png);
+  background-image: url(/image/runBear/bg-space-6e69cd1.png);
   transform: translate3d(0, 0, 0);
   animation: moving 460s linear 0.8s infinite normal none;
 }
@@ -22,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 336px;
-  background-image: url(src/assets/img/runBear/bg-mountain-1-11661c6.png);
+  background-image: url(/image/runBear/bg-mountain-1-11661c6.png);
   background-repeat: no-repeat;
   animation: bg 40s linear infinite;
 }
@@ -32,7 +31,7 @@
   left: 0;
   width: 100%;
   height: 384px;
-  background-image: url(src/assets/img/runBear/bg-mountain-2-f8a4360.png);
+  background-image: url(/image/runBear/bg-mountain-2-f8a4360.png);
   background-repeat: no-repeat;
   opacity: .1;
   animation: bg 50s linear infinite;
@@ -44,7 +43,7 @@
   left: 0;
   width: 100%;
   height: 569px;
-  background-image: url(src/assets/img/runBear/bg-mountain-3-54c28fd.png);
+  background-image: url(/image/runBear/bg-mountain-3-54c28fd.png);
   background-repeat: no-repeat;
   opacity: .5;
   animation: bg 70s linear infinite;
@@ -57,7 +56,7 @@
   left: 0;
   width: 200px;
   height: 120px;
-  background-image: url(src/assets/img/runBear/bear-25676f9.png);
+  background-image: url(/image/runBear/bear-25676f9.png);
   background-repeat: no-repeat;
   transform: translateX(-50%);
   animation: bear 0.8s steps(8)infinite, move 6s forwards .2s;
@@ -66,7 +65,7 @@
   margin: 5px auto;
   width: 246px;
   height: 268px;
-  background: url(src/assets/img/runBear/bg-scene-2-icon-d74291a.png) no-repeat;
+  background: url(/image/runBear/bg-scene-2-icon-d74291a.png) no-repeat;
   animation: sceneMove 5s ease-in-out infinite;
 }
 .scene p {
@@ -95,7 +94,6 @@
   transform-origin: top;
   animation: swing 5s ease-in-out infinite;
   transition: .5s ease;
-  cursor: url('assets/cursor/mouse2.cur'), auto;
   z-index: 999;
 }
 
