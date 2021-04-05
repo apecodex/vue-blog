@@ -16,10 +16,6 @@
   onMounted(() => {
     isLoading.value = !isLoading.value
   })
-
-  // const save = (text, html) => {
-  //   console.log(text, html)
-  // }
 </script>
 
 <style>

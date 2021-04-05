@@ -11,6 +11,13 @@ const NavLink = () => import('views/blog/navlink/NavLink.vue')
 const About = () => import('views/blog/about/About.vue')
 const Article = () => import('views/blog/article/Article.vue')
 
+// 用户设置界面
+const UserInfo = () => import('views/userInfo/UserInfo.vue')
+const UserProfile = () => import('views/userInfo/profile/UserProfile.vue')
+const UserComment = () => import('views/userInfo/comment/UserComment.vue')
+const UserMessage = () => import('views/userInfo/message/UserMessage.vue')
+const UserLog = () => import('views/userInfo/log/UserLog.vue')
+
 const Login = () => import('views/login/Login.vue')
 
 const PageError = () => import('components/error/PageError.vue')
@@ -78,6 +85,30 @@ const router = createRouter({
           path: '/article/:id',
           name: 'Article',
           component: Article
+        },
+      ]
+    },
+    //  用户后台
+    {
+      path: '/user',
+      component: UserInfo,
+      redirect: '/user/profile',
+      children: [
+        {
+          path: '/user/profile',
+          component: UserProfile,
+        },
+        {
+          path: '/user/comment',
+          component: UserComment
+        },
+        {
+          path: '/user/message',
+          component: UserMessage
+        },
+        {
+          path: '/user/log',
+          component: UserLog
         },
       ]
     },

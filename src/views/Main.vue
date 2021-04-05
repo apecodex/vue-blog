@@ -32,7 +32,8 @@
     </template>
   </blog-container>
   <top-comp></top-comp>
-  <vue-live2d homePage="https://github.com/rookiesmile"></vue-live2d>
+  <!-- 看板娘 -->
+  <live2d/>
 </template>
 
 <script setup>
@@ -45,8 +46,8 @@ import FooterLeftComp from 'components/footer/FooterLeftComp.vue'
 import FooterRightComp from 'components/footer/FooterRightComp.vue'
 
 import TopComp from 'components/top/TopComp.vue'
-
-import vueLive2d from 'vue-live2d'
+// 看板娘
+import live2d from 'components/live2d/index.vue'
 window.onload = function() {
   document.addEventListener('touchstart', function (event) {
     if (event.touches.length > 1) {

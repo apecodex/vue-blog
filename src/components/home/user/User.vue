@@ -3,7 +3,7 @@
     <img src="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg" alt="" class="user-img">
     <div class="user-box">
       <span class="username">apecodewx</span>
-      <button class="user-info-btn">个人信息</button>
+      <button class="user-info-btn"><router-link to="user">个人信息</router-link></button>
       <button class="user-logout-btn">退出</button>
     </div>
   </div>
@@ -51,6 +51,10 @@
     font-size: 18px;
     font-weight: bolder;
     margin-bottom: 6px;
+  }
+
+  .user-container .user-box button a {
+    color: #ffffff;
   }
 
   .user-container .user-box button {

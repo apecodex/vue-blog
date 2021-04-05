@@ -1,3 +1,6 @@
+.comment-show-inner {
+    width: 100%;
+}
 
 .comment-show-inner,
 .comment-show-inner .comment-show-item .reply-content {
@@ -82,6 +85,7 @@
     background: transparent;
     outline: none;
     transition: .5s ease;
+    z-index: 9999;
 }
 
 .comment-show-inner .comment-show-item .comment-btn-box button.reply-btn > .reply-num {

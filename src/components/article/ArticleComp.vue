@@ -20,6 +20,9 @@
                method="get"
                :submitFunc="submit"
                btnText="留言"/>
+      <div class="h20"></div>
+      <comment-show :messages="messages"/>
+
     </div>
   </section>
 </template>
@@ -30,9 +33,10 @@ import ArticleContent from 'components/article/ArticleContent.vue'
 import ArticleFooter from 'components/article/ArticleFooter.vue'
 
 import Comment from 'common/comment/Comment.vue'  // 评论组件
+import CommentShow from 'common/commentShow/CommentShow.vue';
 
 // 加载loader...
-import {ref, onBeforeMount} from "vue";
+import {ref, onBeforeMount, reactive} from "vue";
 
 const isLoading = ref(true)
 const articleData = ref({})  // 文章数据
@@ -141,6 +145,44 @@ onBeforeMount(() => {
   isLoading.value = !isLoading.value;
 })
 
+const messages = reactive([
+  {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecode', 'time': '2021·3·22', 'text': 'some message some message',
+    'replyMessages': [
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecodewx', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '张三', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '小王', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+
+    ]},
+  {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecode', 'time': '2021·3·22', 'text': 'some message some message',
+    'replyMessages': [
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecodewx', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '张三', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '小王', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+
+    ]},
+  {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecode', 'time': '2021·3·22', 'text': 'some message some message',
+    'replyMessages': [
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecodewx', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '张三', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '小王', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+
+    ]},
+  {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecode', 'time': '2021·3·22', 'text': 'some message some message',
+    'replyMessages': [
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecodewx', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '张三', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '小王', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+
+    ]},
+  {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecode', 'time': '2021·3·22', 'text': 'some message some message',
+    'replyMessages': [
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': 'apecodewx', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '张三', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+      {'head': 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg', 'username': '小王', 'replyUsername': 'apecode', 'time': '2021·3·22', 'text': 'some message some message'},
+
+    ]},
+])
+
 const submit = (e, a) => {
   console.log("do some");
   console.log(a);
@@ -168,6 +210,10 @@ const submit = (e, a) => {
 
   .article-content > div {
     margin: 0;
+  }
+
+  .h20 {
+    height: 20px;
   }
 
   @media screen and (max-width: 768px) {
