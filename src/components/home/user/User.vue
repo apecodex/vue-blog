@@ -1,6 +1,6 @@
 <template>
   <div class="user-container">
-    <img src="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg" alt="" class="user-img">
+    <img src="https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg" alt="" class="user-img">
     <div class="user-box">
       <span class="username">apecodewx</span>
       <button class="user-info-btn"><router-link to="user">个人信息</router-link></button>

@@ -1,8 +1,10 @@
 <template>
-  <h1>comment</h1>
+  <br>
+  <comment-item></comment-item>
 </template>
 
 <script setup>
+  import CommentItem from 'views/userInfo/comment/CommentItem.vue'
 </script>
 
 <style scoped>

@@ -19,6 +19,7 @@ const UserMessage = () => import('views/userInfo/message/UserMessage.vue')
 const UserLog = () => import('views/userInfo/log/UserLog.vue')
 
 const Login = () => import('views/login/Login.vue')
+const AdminLogin = () => import('views/login/AdminLogin.vue')
 
 const PageError = () => import('components/error/PageError.vue')
 
@@ -111,6 +112,10 @@ const router = createRouter({
           component: UserLog
         },
       ]
+    },
+    {
+      path: '/admin/login',
+      component: AdminLogin
     },
     {
       path: '/login',

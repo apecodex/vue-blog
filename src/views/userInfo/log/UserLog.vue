@@ -1,5 +1,10 @@
 <template>
-  <h1>Log</h1>
+  <br>
+  <el-alert
+      title="开发中..."
+      type="info"
+      effect="dark">
+  </el-alert>
 </template>
 
 <script setup>

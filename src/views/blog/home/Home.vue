@@ -136,7 +136,7 @@
   })
 
   const information = reactive({
-    head: 'https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg',
+    head: 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg',
     author: 'apecode',
     description: 'some description some description',
     link: [

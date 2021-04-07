@@ -6,42 +6,63 @@
     </label>
     <ul>
       <li>
-        <img src="https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg" alt="">
+        <img :src="imageUrl" v-if="imageUrl !== ''" alt="">
+        <img v-else src="~assets/svg/login/avatar.svg" alt="">
+        <div class="change-head" @click="openUpload"><i class="fa fa-plus"></i></div>
+
         <span>apecodewx</span>
       </li>
       <li>
         <router-link to="/user/profile" :class="{'bl': bl('profile')}">
-          <i class="fa fa-home"></i>
+          <i class="fa fa-user"></i>
           <span>个人资料</span>
         </router-link>
       </li>
       <li>
         <router-link to="/user/comment"  :class="{'bl': bl('comment')}">
-          <i class="fa fa-sitemap"></i>
+          <i class="fa fa-comment"></i>
           <span>我的评论</span>
         </router-link>
       </li>
       <li>
         <router-link to="/user/message"  :class="{'bl': bl('message')}">
-          <i class="fa fa-user"></i>
-          <span>我的消息</span>
+          <i class="fa fa-bell"></i>
+          <span>我的消息<span class="num">99+</span></span>
         </router-link>
       </li>
       <li>
         <router-link to="/user/log"  :class="{'bl': bl('log')}">
-          <i class="fa fa-shopping-cart"></i>
+          <i class="fa fa-file-text"></i>
           <span>登录日志</span>
         </router-link>
       </li>
       <li>
         <a href="javascript:;" :class="{'bl': bl('exit')}">
-          <i class="fa fa-windows"></i>
+          <i class="fa fa-sign-out"></i>
           <span>退出</span>
         </a>
       </li>
+      <li><a href="/">
+        <i class="fa fa-backward"></i>
+        <span>回到博客</span>
+      </a></li>
     </ul>
     <div class="user-content">
       <router-view/>
+      <div class="select-img" v-if="openAvatarUpload">
+        <i class="fa fa-times" @click="closeAvatarUpload"></i>
+        <el-upload v-loading.fullscreen.lock="fullscreenLoading"
+            class="avatar-uploader"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :on-error="handleAvatarError"
+            :on-progress="handleAvatarProgress"
+            :before-upload="beforeAvatarUpload">
+          <img v-if="imageUrl" :src="imageUrl" class="avatar">
+          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+        </el-upload>
+      </div>
     </div>
   </section>
 
@@ -51,11 +72,55 @@
 
   import {computed,ref} from "vue";
   import { useRoute } from 'vue-router'
+  import {ElMessage} from "element-plus";
 
   const route = useRoute()
 
+  const openAvatarUpload = ref(false)
+  const fullscreenLoading = ref(false)
+
   const bl = path => {
     return route.path.split('/')[2] === path
+  }
+
+  const imageUrl = ref('')
+
+  const openUpload = () => {
+    openAvatarUpload.value = !openAvatarUpload.value
+  }
+
+  const closeAvatarUpload = () => {
+    openAvatarUpload.value = !openAvatarUpload.value
+  }
+
+  const handleAvatarSuccess = (res, file) => {
+    imageUrl.value = URL.createObjectURL(file.raw);
+    openAvatarUpload.value = false
+    ElMessage.success({
+      message: '头像更换成功！',
+      type: 'success'
+    });
+  }
+
+  const handleAvatarProgress = (event, file) => {
+    fullscreenLoading.value = true
+  }
+
+  const handleAvatarError = (err, file) => {
+    fullscreenLoading.value = false
+    ElMessage.error('上传失败！');
+  }
+  const beforeAvatarUpload = (file) => {
+    const isJPG = file.type === 'image/jpeg';
+    const isLt2M = file.size / 1024 / 1024 < 2;
+
+    if (!isJPG) {
+      ElMessage.error('上传头像图片只能是 JPG 格式!');
+    }
+    if (!isLt2M) {
+      ElMessage.error('上传头像图片大小不能超过 2MB!');
+    }
+    return isJPG && isLt2M;
   }
 
 </script>
@@ -72,7 +137,7 @@
     width: 100%;
     height: 50px;
     line-height: 50px;
-    background-color: #fff;
+    background: #20222a;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
   }
 
@@ -92,7 +157,7 @@
   }
 
   section.navbar ul {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 200px;
@@ -128,6 +193,54 @@
     white-space: nowrap;
   }
 
+  .num {
+    border-radius: 4px;
+    background-color: darkred;
+    color: #ffffff;
+  }
+
+  section.navbar .change-head {
+    position: absolute;
+    height: 30px;
+    color: #cccccc;
+    margin-left: 140px;
+    z-index: 1;
+    margin-top: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+  section.navbar .change-head::after {
+    margin-top: -15px;
+    content: '更换头像';
+    font-size: 12px;
+  }
+
+  .select-img {
+    width: 300px;
+    height: 300px;
+    background: #20222a;
+    border-radius: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -50%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+  }
+
+  .select-img > i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ffffff;
+  }
+
   section.navbar ul li a {
     display: flex;
     align-items: center;
@@ -159,6 +272,9 @@
     right: 0;
     padding: 0 5px;
     transition: all .5s;
+    height: calc(100vh - 50px);
+    background: #ffffff;
+
   }
 
   section.navbar input:checked + label {
@@ -182,6 +298,14 @@
   }
 
   @media screen and (max-width: 786px) {
+
+    .select-img {
+      display: none;
+    }
+
+    section.navbar .change-head {
+      display: none;
+    }
     section.navbar ul {
       width: 140px;
     }
@@ -197,4 +321,30 @@
       left: -140px;
     }
   }
+</style>
+
+<style>
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409EFF;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  line-height: 178px;
+  text-align: center;
+}
+.avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
 </style>
