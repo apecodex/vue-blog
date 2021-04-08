@@ -2,7 +2,7 @@
   <div class="tag-content">
     <ul>
       <li :style="{'background': color()}" v-for="(item, index) in tags" :key="index">
-        {{item}}
+        <router-link :to="{path: 'tags', query: {tag: item}}">{{item}}</router-link>
       </li>
     </ul>
   </div>
@@ -30,14 +30,16 @@
     margin-left: 5px;
     margin-bottom: 5px;
     background: #eee;
-    color: #fff;
     border-radius: 4px;
     transition: .5s ease;
+  }
+
+  .tag-content ul li a {
+    color: #fff;
   }
 
   .tag-content ul li:hover {
     background: #333 !important;
     transform: scale(1.2)
-
   }
 </style>

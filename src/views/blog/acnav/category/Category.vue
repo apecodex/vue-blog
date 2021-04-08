@@ -1,4 +1,7 @@
 <template>
+  <transition name="fade">
+    <loading v-if="isLoading"></loading>
+  </transition>
   <category-container>
     <template #content>
       <category-item :categoryList="categoryData.categoryList"></category-item>
@@ -7,10 +10,18 @@
 </template>
 
 <script setup>
-  import { reactive } from "vue";
+  import {onMounted, ref, reactive} from "vue";
 
+  import loading from 'components/loader/loading.vue'
   import CategoryContainer from 'components/acnav/category/CategoryContainer.vue'
   import CategoryItem from 'components/acnav/category/CategoryItem.vue'
+
+  // 加载loader...
+  const isLoading = ref(true)
+
+  onMounted(() => {
+    isLoading.value = !isLoading.value
+  })
 
   const categoryData = reactive({
     categoryList: [

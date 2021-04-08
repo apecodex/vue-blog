@@ -1,7 +1,4 @@
 <template>
-  <transition name="fade">
-    <loading v-if="isLoading"></loading>
-  </transition>
   <ac-nav-container>
     <template #nav>
       <ac-navigation>
@@ -18,17 +15,6 @@
   import acNavContainer from 'common/container/acNavContainer.vue'
   import acNavigation from 'components/acnav/acNavigation.vue'
   import acNavigationItem from 'components/acnav/acNavigationItem.vue'
-
-  import loading from 'components/loader/loading.vue'
-
-  import {onMounted, ref} from "vue";
-  // 加载loader...
-  const isLoading = ref(true)
-
-  onMounted(() => {
-    isLoading.value = !isLoading.value
-  })
-
 </script>
 
 <style>

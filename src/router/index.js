@@ -5,6 +5,7 @@ const Home = () => import('views/blog/home/Home.vue')
 const ACNav = () => import('views/blog/acnav/acNav.vue')
 const Archive = () => import('views/blog/acnav/archive/Archive.vue')
 const Category = () => import('views/blog/acnav/category/Category.vue')
+const ArticleList = () => import('views/blog/acnav/category/articles/ArticleList.vue')
 const Tags = () => import('views/blog/tags/Tags.vue')
 const Message = () => import('views/blog/message/Message.vue')
 const NavLink = () => import('views/blog/navlink/NavLink.vue')
@@ -53,19 +54,16 @@ const router = createRouter({
               path: '/acnav/category',
               name: 'Category',
               component: Category
-            }
+            },
+            {
+              path: '/acnav/category/articles',
+              component: ArticleList,
+            },
           ]
         },
         {
           path: '/tags',
-          component: Tags,
-          children: [
-            {
-              path: '/tags/:tag',
-              name: 'Tags',
-              component: Tags,
-            }
-          ]
+          component: Tags
         },
         {
           path: '/message',
@@ -122,15 +120,10 @@ const router = createRouter({
       component: Login
     },
     {
-      path: '/404',
+      path: '/:pathMatch(.*)*',
       name: "NotFound",
       component: PageError
-    },
-    {
-      path: "/:catchAll(.*)", // 此处需特别注意置于最底部
-      redirect: "/404"
     }
-
   ]
 });
 

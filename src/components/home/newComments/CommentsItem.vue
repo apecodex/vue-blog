@@ -1,7 +1,7 @@
 // 最新评论
 <template>
   <div class="new-comments-content">
-    <a :href="link">
+    <a :href="'article/'+link">
       <div class="new-comments-head rotate-img" >
         <img :src="head" :alt="commentUser">
       </div>

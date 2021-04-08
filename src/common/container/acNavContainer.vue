@@ -16,7 +16,7 @@
 <style scoped>
   .ac-nav-container {
     padding: 5px 10vw 0;
-    height: 100vh;
+    height: 100%;
     z-index: 9999;
   }
 

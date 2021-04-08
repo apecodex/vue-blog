@@ -18,7 +18,7 @@ import {onMounted, ref} from "vue"
   import TagContent from 'components/tags/TagContent.vue'
   import loading from 'components/loader/loading.vue'
 
-  const tags = ref(['Java', 'Python', "Go", "Linux", 'Servelt', 'Tomcat', '爬虫'])
+  const tags = ref(['Java', 'Python', "Go", "Linux", 'Servlet', 'Tomcat', '爬虫'])
 
   // 加载loader...
   const isLoading = ref(true)

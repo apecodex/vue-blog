@@ -1,49 +1,51 @@
 <template>
   <div class="tag-list">
     <ul>
-      <li :style="{'background': color()}" class="box-rubber-band" v-for="(item, index) in tags" :key="index" @click="itemBtn(item)">
-        <span>{{ item }}</span>
+      <li :style="{'background': color()}" class="box-rubber-band" v-for="(item, index) in tags" :key="index" @click="itemBtn">
+        <router-link :to="{query: {tag: item}}">{{ item }}</router-link>
       </li>
     </ul>
   </div>
-  <div class="tag-content">
-    <div class="tag-title">{{ title }}</div>
-    <div class="article-list">
-      <ul>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#">8</a></li>
-        <li><a href="#">9</a></li>
-        <li><a href="#">10</a></li>
-      </ul>
-    </div>
+  <div class="tag-content" v-show="tagContentShow">
+    <div class="tag-title">{{ $route.query.tag }}</div>
+    <article-item v-for="(item, index) of articles" :year="item.year" :articles="item.data"></article-item>
   </div>
 </template>
 
 <script setup>
-  import { color } from 'utils/utils.js'
-  import { defineProps, computed, ref } from 'vue'
-  import { useRouter, useRoute } from 'vue-router'
+  import ArticleItem from 'views/blog/acnav/category/articles/ArticleItem.vue'
 
-  const router = useRouter()
+  import { color } from 'utils/utils.js'
+  import {defineProps, computed, ref, onMounted} from 'vue'
+  import {useRoute} from "vue-router";
+
   const route = useRoute()
+  const tagContentShow = ref(false)
 
   const props = defineProps({
     tags: Array
   })
 
-  router.replace("/tags/" + props.tags[0])
+  onMounted(() => {
+    itemBtn()
+  })
 
-  const title = ref(computed(() => route.params.tag))
-
-  const itemBtn = tag => {
-    router.push("/tags/" + tag)
+  const itemBtn = () => {
+    if (route.query.tag) {
+      console.log('ok')
+      tagContentShow.value = true
+      return
+    }
+    tagContentShow.value = false
   }
+
+  const articles = ref([
+    {year: '2021', data: [{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'}]},
+    {year: '2020', data: [{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'}]},
+    {year: '2019', data: [{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'}]},
+    {year: '2018', data: [{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'}]},
+    {year: '2017', data: [{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'},{name: '关于我的博客开发历程', link: 'aaa'}]}
+  ])
 </script>
 
 <style>
@@ -82,25 +84,19 @@
     background: rgba(0, 0, 0, .3) !important;
   }
 
-  .tag-list ul li span {
+  .tag-list ul li a {
     width: 100%;
     height: 100%;
     color: #fff;
     font-weight: bold;
   }
 
-  .tag-list ul li:hover span {
+  .tag-list ul li:hover a {
     color: #333;
   }
 
-  .tag-content {
-    margin: 0 auto;
-    padding: 10px 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .tag-title {
+    text-align: center;
     padding: 5px 15px;
     margin: 5px 0;
     color: maroon;

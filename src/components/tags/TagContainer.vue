@@ -13,7 +13,7 @@ export default {
 <style scoped>
   .tag-container {
     padding: 0 13vw;
-    height: 100vh;
+    height: 100%;
   }
 
   @media screen and (max-width: 1000px) {

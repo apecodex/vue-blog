@@ -195,7 +195,7 @@ const submit = (e, a) => {
 <style scoped>
 
   section.article-container .article-content {
-    padding: 0 10vw;
+    padding: 0 20vw;
     margin-top: 5px;
   }
   section.article-container .article-content .hr {

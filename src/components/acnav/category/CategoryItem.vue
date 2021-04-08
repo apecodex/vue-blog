@@ -1,11 +1,13 @@
 <template>
   <div class="category-inner">
     <div class="category-content box-border-white" v-for="(item, index) in categoryList" :key="index">
+      <router-link :to="{path: 'category/articles', query: {'name': item.name}}">
       <div class="category-img">
         <img :src="item.image" alt="">
       </div>
-      <div class="category-title"><a href="#">{{ item.name }}</a></div>
+      <div class="category-title">{{ item.name }}</div>
       <div class="category-text"><p>{{ item.description }}</p></div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -64,7 +66,7 @@
     transform: scale(1.4);
   }
 
-  .category-title a{
+  .category-title{
     position: absolute;
     top: 35%;
     left: 0;
@@ -75,7 +77,7 @@
     z-index: 1;
   }
 
-  .category-title a:hover {
+  .category-title:hover {
     color: tomato;
   }
 

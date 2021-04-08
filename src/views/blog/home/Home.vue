@@ -48,27 +48,27 @@
         <box-comp>
           <template #title>最新评论</template>
           <template #content>
-            <comments-item link="##"
+            <comments-item link="aaa"
                           head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
                           commentUser="apecode1"
                           text="some text some text some text some text some text "
                           articleTitle="我的博文1"/>
-            <comments-item link="##"
+            <comments-item link="aaa"
                           head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
                           commentUser="apecode2"
                           text="some text some text some"
                           articleTitle="我的博文2"/>
-            <comments-item link="##"
+            <comments-item link="bbb"
                           head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
                           commentUser="apecode3"
                           text="some text some text some text s"
                           articleTitle="我的博文3"/>
-            <comments-item link="##"
+            <comments-item link="ccc"
                           head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
                           commentUser="apecode4"
                           text="some text some text e text some text "
                           articleTitle="我的博文4"/>
-            <comments-item link="##"
+            <comments-item link="aaa"
                           head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg"
                           commentUser="apecode5"
                           text="some text some text some text "

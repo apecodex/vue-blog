@@ -1,9 +1,9 @@
 <template>
   <div class="hot-article-content">
-    <a href="#">
+    <router-link :to="{path: '/article/aaa'}">
       <div class="article-title">{{ title }}</div>
       <div class="article-hot-num">{{ num }}℃</div>
-    </a>
+    </router-link>
   </div>
 </template>
 
