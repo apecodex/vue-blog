@@ -22,6 +22,9 @@ const UserLog = () => import('views/userInfo/log/UserLog.vue')
 const Login = () => import('views/login/Login.vue')
 const AdminLogin = () => import('views/login/AdminLogin.vue')
 
+// 管理员后台
+const Admin = () => import('views/admin/Admin.vue')
+
 const PageError = () => import('components/error/PageError.vue')
 
 const router = createRouter({
@@ -92,37 +95,70 @@ const router = createRouter({
       path: '/user',
       component: UserInfo,
       redirect: '/user/profile',
+      meta: {
+        title: '用户管理',
+      },
       children: [
         {
           path: '/user/profile',
           component: UserProfile,
+          meta: {
+            title: '用户管理-日志',
+          }
         },
         {
           path: '/user/comment',
-          component: UserComment
+          component: UserComment,
+          meta: {
+            title: '用户管理-评论',
+          }
         },
         {
           path: '/user/message',
-          component: UserMessage
+          component: UserMessage,
+          meta: {
+            title: '用户管理-消息',
+          }
         },
         {
           path: '/user/log',
-          component: UserLog
+          component: UserLog,
+          meta: {
+            title: '用户管理-日志',
+          }
         },
       ]
     },
+    //  管理员后台
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: Admin,
+      meta: {
+        title: 'Admin',
+      }
+    },
     {
       path: '/admin/login',
-      component: AdminLogin
+      component: AdminLogin,
+      meta: {
+        title: '管理员登录',
+      }
     },
     {
       path: '/login',
-      component: Login
+      component: Login,
+      meta: {
+        title: '登录',
+      }
     },
     {
       path: '/:pathMatch(.*)*',
       name: "NotFound",
-      component: PageError
+      component: PageError,
+      meta: {
+        title: 'Page Not Found',
+      }
     }
   ]
 });

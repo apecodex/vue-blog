@@ -52,6 +52,18 @@ body::-webkit-scrollbar-thumb {
   background-clip: border-box;
 }
 
+/* X轴的滚动条 */
+.scrollbar-x::-webkit-scrollbar  {
+  height: 8px;
+}
+
+.scrollbar-x::-webkit-scrollbar-thumb  {
+  border-radius: 4px;
+  box-shadow: inset 0 0 6px rgb(196, 196, 196);
+  background: rgb(255, 255, 255);
+  background-clip: border-box;
+}
+
 a {
   color: var(--color-text);
   text-decoration: none;

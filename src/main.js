@@ -23,4 +23,13 @@ VMdPreview.use(vuepressTheme);
 
 const app = createApp(App)
 app.use(router).use(store).use(ElementPlus).use(VueMarkdownEditor).use(VMdPreview);
+
+// 修改浏览器 title
+router.beforeEach((to, from, next) => {
+    if (to.meta.title) {
+        document.title = to.meta.title
+    }
+    next()
+})
+
 app.mount('#app')

@@ -32,7 +32,6 @@
 
   const itemBtn = () => {
     if (route.query.tag) {
-      console.log('ok')
       tagContentShow.value = true
       return
     }
