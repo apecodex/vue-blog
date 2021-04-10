@@ -24,6 +24,8 @@ const AdminLogin = () => import('views/login/AdminLogin.vue')
 
 // 管理员后台
 const Admin = () => import('views/admin/Admin.vue')
+const DashBoard = () => import('views/admin/dashboard/DashBoard.vue')
+const Users = () => import('views/admin/users/Users.vue')
 
 const PageError = () => import('components/error/PageError.vue')
 
@@ -134,9 +136,21 @@ const router = createRouter({
       path: '/admin',
       name: 'Admin',
       component: Admin,
+      redirect: '/admin/dashboard',
       meta: {
         title: 'Admin',
-      }
+      },
+      children: [
+        {
+          path: '/admin/dashboard',
+          component: DashBoard,
+        },
+        {
+          path: '/admin/users',
+          name: 'Users',
+          component: Users
+        },
+      ]
     },
     {
       path: '/admin/login',

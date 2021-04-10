@@ -26,7 +26,6 @@
           <tr-item title="关于我的博客的开发历程9" author="apecode" createTime="2021-1-1" :status="false" />
           <tr-item title="关于我的博客的开发历程10" author="apecode" createTime="2021-1-1" :status="true" />
           <tr-item title="关于我的博客的开发历程11" author="apecode" createTime="2021-1-1" :status="true" />
-          <tr-item title="关于我的博客的开发历程12" author="apecode" createTime="2021-1-1" :status="false" />
         </tbody>
       </table>
     </div>
@@ -70,7 +69,7 @@ import TrItem from "views/admin/dashboard/recentArticles/TrItem.vue";
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 10px 0;
+  margin: 25px 0 10px;
 }
 
 table thead td {

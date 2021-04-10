@@ -2,56 +2,17 @@
   <div class="admin-box">
     <div class="admin-container">
       <nav class="navigation" :class="{'active': menuActive}">
-        <ul>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
-              <span class="title"><h2>Hi,Admin</h2></span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
-              <span class="title">仪表盘</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
-              <span class="title">用户</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
-              <span class="title">消息</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-              <span class="title">博文</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
-              <span class="title">设置</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-              <span class="title">密码</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-              <span class="title">退出</span>
-            </a>
-          </li>
-        </ul>
+        <navigation>
+          <template #li>
+            <nav-item @click="navBtn" path="dashboard" fontawesome="fa-home" title="仪表盘" />
+            <nav-item @click="navBtn" path="users" fontawesome="fa-users" title="用户" />
+            <nav-item @click="navBtn" path="comments" fontawesome="fa-comment" title="消息" />
+            <nav-item @click="navBtn" path="articles" fontawesome="fa-pencil-square-o" title="博文" />
+            <nav-item @click="navBtn" path="setting" fontawesome="fa-cog" title="设置" />
+            <nav-item @click="navBtn" path="password" fontawesome="fa-lock" title="密码" />
+            <nav-item @click="navBtn" path="signOut" fontawesome="fa-sign-out" title="退出" />
+          </template>
+        </navigation>
       </nav>
       <div class="main" :class="{'active': menuActive}">
         <div class="topbar">
@@ -64,53 +25,7 @@
           </div>
         </div>
         <div class="admin-content">
-          <!-- 卡片 -->
-          <card/>
-          <div class="details">
-            <!-- 近期文章 -->
-            <recent-articles/>
-            <div class="recentCustomer">
-              <div class="cardHeader">
-                <h2>新增用户</h2>
-              </div>
-              <table>
-                <tbody>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                <tr>
-                  <td width="50px"><div class="imgBx"><img src="~assets/svg/login/avatar.svg" alt=""></div></td>
-                  <td><h4>David<b>2021-1-1</b><br><span>from Italy</span><b>127.0.0.1</b></h4></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <router-view/>
         </div>
       </div>
     </div>
@@ -118,14 +33,18 @@
 </template>
 
 <script setup>
-  import Card from 'views/admin/dashboard/card/Card.vue';
-  import RecentArticles from "views/admin/dashboard/recentArticles/RecentArticles.vue"
+  import Navigation from "views/admin/Navigation/Navigation.vue";
+  import NavItem from "views/admin/Navigation/NavItem.vue";
 
   import {ref} from "vue";
-  // 点击改变左侧列表
+  // 点击隐藏或显示左侧菜单
   const menuActive = ref(false)
   const toggleMenu = () => {
     menuActive.value = !menuActive.value
+  }
+  // 点击列表也隐藏左侧菜单
+  const navBtn = () => {
+    toggleMenu()
   }
 </script>
 
@@ -154,56 +73,6 @@
 
   .navigation.active {
     width: 60px;
-  }
-
-  .navigation ul {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-
-  .navigation ul li {
-    position: relative;
-    width: 100%;
-  }
-
-  .navigation ul li:first-child {
-    margin-bottom: 20px;
-  }
-
-  .navigation ul li:hover:nth-child(n+2) {
-    background: #03a9f4;
-  }
-
-  .navigation ul li a {
-    position: relative;
-    width: 100%;
-    display: flex;
-    color: #ffffff;
-  }
-
-  .navigation ul li a .icon {
-    position: relative;
-    display: block;
-    min-width: 60px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-  }
-
-  .navigation ul li a .icon .fa {
-    color: #ffffff;
-    font-size: 24px;
-  }
-
-  .navigation ul li a .title {
-    position: relative;
-    display: block;
-    padding: 0 10px;
-    height: 60px;
-    line-height: 60px;
-    white-space: nowrap;
   }
 
   .main {
@@ -276,72 +145,8 @@
     object-fit: cover;
   }
 
-  .details {
-    position: relative;
-    width: 100%;
-    padding: 0 20px 20px;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 2fr 1fr;
-  }
-
-
-  .details .recentCustomer {
-    position: relative;
-    min-height: 530px;
-    background: #fff;
+  .admin-content {
     padding: 20px;
-    border-radius: 6px;
-  }
-
-  .details .recentCustomer .imgBx {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-  .details .recentCustomer .imgBx img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-
-  .details .recentCustomer table tr td h4 span {
-    font-size: 14px;
-    color: #999999;
-  }
-
-  .details .recentCustomer table tr:hover,
-  .details .recentCustomer table tr:hover td h4 span {
-    background: #03a9f4;
-    color: #fff;
-  }
-
-  .details .recentCustomer table tr td {
-    padding: 7px 0;
-  }
-
-  .details .recentCustomer table tr td h4 {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.2em;
-  }
-  .details .recentCustomer table tr td h4 b {
-    float: right;
-    font-size: 12px;
-    color: #6e0832 !important;
-  }
-
-  @media screen and (max-width: 1200px) {
-    .details {
-      grid-template-columns: 1.5fr 1fr;
-    }
   }
 
   @media screen and (max-width: 992px) {
@@ -365,10 +170,6 @@
   }
 
   @media screen and (max-width: 768px) {
-    .details {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
     .cardHeader h2 {
       font-weight: 600;
       font-size: 18px;

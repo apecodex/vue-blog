@@ -1,0 +1,52 @@
+ul li {
+  position: relative;
+  width: 100%;
+}
+
+ul li:first-child {
+  margin-bottom: 20px;
+}
+
+ul li:hover:nth-child(n+2) {
+  background: #03a9f4;
+  cursor: url('assets/cursor/mouse2.cur'), auto;
+}
+
+ul li {
+  position: relative;
+  width: 100%;
+  display: flex;
+  color: #ffffff;
+  transition: .3s;
+}
+
+ul li > div {
+  display: flex;
+}
+
+ul li .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+ul li .icon .fa {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+ul li .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.active {
+  background: #03a9f4;
+}
