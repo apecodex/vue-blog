@@ -44,7 +44,9 @@
   }
   // 点击列表也隐藏左侧菜单
   const navBtn = () => {
-    toggleMenu()
+    if (menuActive.value) {
+      menuActive.value = !menuActive.value
+    }
   }
 </script>
 

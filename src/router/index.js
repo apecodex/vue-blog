@@ -26,6 +26,7 @@ const AdminLogin = () => import('views/login/AdminLogin.vue')
 const Admin = () => import('views/admin/Admin.vue')
 const DashBoard = () => import('views/admin/dashboard/DashBoard.vue')
 const Users = () => import('views/admin/users/Users.vue')
+const Comments = () => import('views/admin/comments/Comments.vue')
 
 const PageError = () => import('components/error/PageError.vue')
 
@@ -144,11 +145,25 @@ const router = createRouter({
         {
           path: '/admin/dashboard',
           component: DashBoard,
+          meta: {
+            title: '仪表盘 · admin'
+          }
         },
         {
           path: '/admin/users',
           name: 'Users',
-          component: Users
+          component: Users,
+          meta: {
+            title: '用户 · admin'
+          }
+        },
+        {
+          path: '/admin/comments',
+          name: 'Comments',
+          component: Comments,
+          meta: {
+            title: '消息 · admin'
+          }
         },
       ]
     },

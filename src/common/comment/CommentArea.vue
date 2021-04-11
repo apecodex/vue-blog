@@ -30,6 +30,10 @@ const props = defineProps({
       type: String,
       default: 'post'
     },
+    content: {
+      type: String,
+      default: ''
+    },
     submitFunc: Function,
     btnText: {
       type: String,
@@ -39,7 +43,7 @@ const props = defineProps({
 
   const emit = defineEmit(['changeEmojiFlag'])
 
-  const message = ref('')  // 文本内容
+  const message = ref(props.content)  // 文本内容
   const contentArea = ref(null)  // textarea dom
 
   watchEffect(() => {

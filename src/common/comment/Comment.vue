@@ -8,6 +8,7 @@
                       :placeholder="placeholder"
                       :actionUrl="actionUrl"
                       :method="method"
+                      :content="content"
                       :submitFunc="submitFunc"
                       :btnText="btnText"
                       @changeEmojiFlag="changeEmojiFlag" ></comment-area>
@@ -43,6 +44,10 @@
     method: {
       type: String,
       default: 'post'
+    },
+    content: {
+      type: String,
+      default: ''
     },
     submitFunc: Function,
     btnText: {

@@ -153,14 +153,26 @@
 
 <style scoped>
   .home-container {
-    padding: 0 13vw;
+    padding: 0 20vw;
     display: flex;
     z-index: 9999;
   }
 
+  @media screen and (max-width: 1556px) {
+    .home-container {
+      padding: 0 10vw;
+    }
+  }
+
+  @media screen and (max-width: 1366px) {
+    .home-container {
+      padding: 0 5vw;
+    }
+  }
+
   @media screen and (max-width: 1000px) {
     .home-container {
-      padding: 0 0;
+      padding: 0 5vw;
     }
   }
 

@@ -26,6 +26,7 @@
     background-color: rgba(0, 0, 0, .05);
     border-radius: 50px 4px 4px 50px;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, .2);
+    margin-bottom: 20px;
   }
 
   .userinfo-container .userinfo-inner {
