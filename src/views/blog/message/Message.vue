@@ -7,11 +7,7 @@
       <message-left-content>
         <template #comment>
           <message-user-info head="https://i.loli.net/2021/03/12/xCdGnVRzkl8Kqwc.jpg" username="apecode"/>
-          <comment rows="5"
-                   actionUrl=""
-                   method="get"
-                   :submitFunc="submit"
-                   btnText="留言"/>
+            <comment action="" rows="4" btnText="留言" :onSubmit="onSubmit"></comment>
           <div class="message-tips">这里是留言板块，有任何问题，都可以在这里说明，我会及时回复的哦~</div>
         </template>
       </message-left-content>
@@ -85,7 +81,7 @@
       ]},
   ])
 
-  const submit = (e, a) => {
+  const onSubmit = (e, a) => {
     console.log("do some");
     console.log(a);
 

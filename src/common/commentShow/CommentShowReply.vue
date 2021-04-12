@@ -14,8 +14,8 @@
     <comment rows="5"
              actionUrl=""
              method="get"
-             :submitFunc="submit"
-             btnText="留言"/>
+             :onSubmit="onSubmit"
+             btnText="回复"/>
     <div class="h10"></div>
     <hr>
     <div class="h10"></div>
@@ -26,8 +26,8 @@
   import { ref, defineProps } from "vue";
 
   import { color } from 'utils/utils.js'
-
   import Comment from 'common/comment/Comment.vue'  // 评论组件
+
 
   const props = defineProps({
     head: String,
@@ -43,7 +43,7 @@
     replyCommentShow.value = !replyCommentShow.value
   }
 
-  const submit = (e, a) => {
+  const onSubmit = (e, a) => {
     console.log("do some");
     console.log(a);
 

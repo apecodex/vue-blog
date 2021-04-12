@@ -21,7 +21,8 @@
           <template #reference>
             <button class="fix-btn">修改</button>
           </template>
-          <comment rows="5" actionUrl="" placeholder="" :content="entitiestoUtf16(articleInfo.content)" :submitFunc="submit" btnText="修改"></comment>
+          <!-- 评论 -->
+          <comment action="" rows="4" btnText="修改" :content="entitiestoUtf16(articleInfo.content)" :onSubmit="onSubmit"></comment>
         </el-popover>
       </div>
       <div class="content-box">
@@ -72,7 +73,7 @@
     commentShowBtn.value = !commentShowBtn.value
   }
 
-  const submit = (e, a) => {
+  const onSubmit = (e, a) => {
     console.log(a);
 
     e.preventDefault()

@@ -11,15 +11,14 @@
                        :categoryLink="articleData.categoryLink"
                        :categoryName="articleData.categoryName"
                        :eye="articleData.eye"
-
-                       :text="text"></article-content>
+                       :text="text"/>
       <article-footer></article-footer>
       <div class="hr">有何感想，评论一下吧</div>
       <comment rows="5"
                actionUrl=""
                method="get"
-               :submitFunc="submit"
-               btnText="留言"/>
+               :onSubmit="onSubmit"
+               btnText="评论"/>
       <div class="h20"></div>
       <comment-show :messages="messages"/>
 
@@ -183,7 +182,7 @@ const messages = reactive([
     ]},
 ])
 
-const submit = (e, a) => {
+const onSubmit = (e, a) => {
   console.log("do some");
   console.log(a);
 

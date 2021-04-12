@@ -1,6 +1,6 @@
 <template>
   <div class="emoji-box">
-    <button @click.stop="openEmoji">{{entitiestoUtf16('&#128512;')}}</button> 
+    <span @click.stop="openEmoji"><i class="fa fa-smile-o" aria-hidden="true"></i></span>
     <div class="emoji-item" v-show="emojiStatus" ref="showPanel">
       <ul>
         <li v-for="(item, index) in emojis" :key="index" @click="emojiItem(item)"><span>{{entitiestoUtf16(item)}}</span></li>
@@ -61,12 +61,12 @@
     position: relative;
   }
 
-  button {
-    border: 0;
-    margin-left: 10px;
-    font-size: 25px;
-    outline: none;
-    background: transparent;
+  .emoji-box i.fa {
+    font-size: 22px;
+  }
+
+  .emoji-box i.fa:hover {
+    color: #149708;
   }
 
   .emoji-item {
