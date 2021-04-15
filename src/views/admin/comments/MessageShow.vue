@@ -6,12 +6,17 @@
                          :replyInfo="item.replyInfo" :replayTime="item.replyTime" :showComment="item.showComment" :articleInfo="item.articleInfo"/>
     </div>
     <div class="message-send">
+      <send-notice></send-notice>
+      <feed-back></feed-back>
     </div>
   </section>
 </template>
 
 <script setup>
   import MessageShowItem from "views/admin/comments/MessageShowItem.vue"
+  import SendNotice from "views/admin/comments/SendNotice.vue"  // 发送通知
+  import FeedBack from "views/admin/comments/FeedBack.vue"  // 用户反馈
+
   import {defineProps} from "vue";
 
   const props = defineProps({

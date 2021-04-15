@@ -53,6 +53,45 @@
             author: 'apecode'
           }
         },
+        {
+          commentInfo: {username: '赵六', homePage: 'https://liuyangxiong.cn'},
+          replyInfo: {username: '李四', homePage: 'https://liuyangxiong.cn'},
+          replyTime: '2021-01-01',
+          showComment: true,
+          articleInfo: {
+            title: "关于我的博客开发历程",
+            id: 'aaa',
+            content: 'some text &#128536; some text some text some text\nsome text some text some text\nsome text some text',
+            tag: 'Java',
+            author: 'apecode'
+          }
+        },
+        {
+          commentInfo: {username: '赵六', homePage: 'https://liuyangxiong.cn'},
+          replyInfo: {username: '李四', homePage: 'https://liuyangxiong.cn'},
+          replyTime: '2021-01-01',
+          showComment: true,
+          articleInfo: {
+            title: "关于我的博客开发历程",
+            id: 'aaa',
+            content: 'some text &#128536; some text some text some text\nsome text some text some text\nsome text some text',
+            tag: 'Java',
+            author: 'apecode'
+          }
+        },
+        {
+          commentInfo: {username: '赵六', homePage: 'https://liuyangxiong.cn'},
+          replyInfo: {username: '李四', homePage: 'https://liuyangxiong.cn'},
+          replyTime: '2021-01-01',
+          showComment: true,
+          articleInfo: {
+            title: "关于我的博客开发历程",
+            id: 'aaa',
+            content: 'some text &#128536; some text some text some text\nsome text some text some text\nsome text some text',
+            tag: 'Java',
+            author: 'apecode'
+          }
+        },
       ]
     }
   })

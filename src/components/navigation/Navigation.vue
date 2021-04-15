@@ -15,7 +15,6 @@
         </svg>
       </a>
     </div>
-    <!-- <ul class="nav-menu" :class="{'open': burger}" ref="navMenuRef"><slot name="nav-menu-item"/></ul> -->
     <div class="nav-menu" :class="{'open': burger}" ref="navMenuRef"><slot name="nav-menu-item"/></div>
     <div class="burger" :class="{'active': burger, 'close': !burger}" @click="burgerBtn">
       <div class="top-line"></div>

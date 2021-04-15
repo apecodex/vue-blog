@@ -1,6 +1,6 @@
 <template>
   <div class="emoji-box">
-    <span @click.stop="openEmoji"><i class="fa fa-smile-o" aria-hidden="true"></i></span>
+    <span @click.stop="openEmoji"><i class="fa fa-smile-o" aria-hidden="true" :class="{'dark': dark}"></i></span>
     <div class="emoji-item" v-show="emojiStatus" ref="showPanel">
       <ul>
         <li v-for="(item, index) in emojis" :key="index" @click="emojiItem(item)"><span>{{entitiestoUtf16(item)}}</span></li>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-  import { ref, defineEmit, onMounted, onBeforeUnmount} from "vue";
+import {ref, defineEmit, onMounted, onBeforeUnmount, defineProps} from "vue";
 
   import { utf16toEntities, entitiestoUtf16 } from "utils/utils.js"
 
@@ -18,6 +18,13 @@
 
   const emojiStatus = ref(false)
   const showPanel = ref(null)
+
+  const props = defineProps({
+    dark: {
+      type: Boolean,
+      default: false
+    }
+  })
 
   // 点击其他地方关闭表情包
   onMounted(() => {
@@ -63,6 +70,10 @@
 
   .emoji-box i.fa {
     font-size: 22px;
+  }
+
+  .emoji-box i.fa.dark {
+    color: #ffffff;
   }
 
   .emoji-box i.fa:hover {

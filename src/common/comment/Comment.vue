@@ -1,14 +1,13 @@
 <template>
-  <section>
-    <div class="message-container">
+  <section :class="{'dark': dark}">
+    <div class="message-container" :class="{'dark': dark}">
       <form :action="action" :method="method" autocomplete="off" @submit="onSubmit">
-        <label for="content"></label>
         <div class="message-textarea">
-          <textarea name="content" id="content" v-model="content" :rows="rows" :placeholder="placeholder" ref="contentArea" />
+          <textarea :class="{'dark': dark}" name="content" v-model="content" :rows="rows" :placeholder="placeholder" ref="contentArea" />
         </div>
         <div class="tool">
-          <button class="message-btn">{{ btnText }}</button>
-          <emoji @getEmoji='getEmoji'/>
+          <button class="message-btn" :class="{'dark': dark}">{{ btnText }}</button>
+          <emoji @getEmoji='getEmoji' :dark="true"/>
           <i class="fa fa-link" aria-hidden="true"></i>
         </div>
       </form>
@@ -27,6 +26,10 @@
     method: {
       type: String,
       default: 'post',
+    },
+    dark: {
+      type: Boolean,
+      default: false
     },
     rows: String,
     placeholder: {
@@ -83,6 +86,10 @@
     width: 100%;
   }
 
+  section.dark {
+    background: #20222a;
+  }
+
   section .message-container {
     border: 1px solid rgba(0,0,0,.3);
     padding: 5px;
@@ -90,8 +97,16 @@
     transition: .3s;
   }
 
+  section .message-container.dark {
+    border-color: #f0c688;
+  }
+
   section .message-container:hover {
     border-color: #03a9f4;
+  }
+
+  section .message-container.dark:hover {
+    border-color: #ffffff;
   }
 
   section .message-container .message-textarea textarea {
@@ -103,6 +118,10 @@
     font-weight: bold;
     color: tomato;
     transition: .5s ease;
+  }
+
+  section .message-container .message-textarea textarea.dark {
+    background: #20222a;
   }
 
   section .message-container .message-textarea textarea::placeholder {
@@ -132,6 +151,10 @@
     outline: none;
     background: 0;
     border-radius: 4px;
+  }
+
+  .message-btn.dark {
+    color: #ffffff;
   }
 
   .message-btn:hover {
