@@ -42,7 +42,7 @@ import {computed, defineProps, ref} from "vue";
   }
 
   div.section-header:first-child {
-    margin: 0 0 10px;
+    margin: 0 0 20px;
   }
 
   div.section-header span {

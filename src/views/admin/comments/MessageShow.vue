@@ -31,6 +31,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 20px;
+    margin-bottom: 20px;
   }
 
   .message-show {

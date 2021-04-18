@@ -7,8 +7,8 @@
         </div>
         <div class="tool">
           <button class="message-btn" :class="{'dark': dark}">{{ btnText }}</button>
-          <emoji @getEmoji='getEmoji' :dark="true"/>
-          <i class="fa fa-link" aria-hidden="true"></i>
+          <emoji @getEmoji='getEmoji' :dark="dark"/>
+<!--          <i class="fa fa-link" aria-hidden="true"></i>-->
         </div>
       </form>
     </div>

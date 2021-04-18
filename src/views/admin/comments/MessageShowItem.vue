@@ -189,6 +189,8 @@
   .content-box .message-text {
     margin: 10px 55px 10px 0;
     color: #ffffff;
+    max-height: 70px;
+    overflow-y: auto;
   }
 
   .content-box .article-info {
