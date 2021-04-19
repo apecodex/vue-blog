@@ -45,6 +45,10 @@ import {computed, defineProps, ref} from "vue";
     margin: 0 0 20px;
   }
 
+  div.section-header:nth-child(n+2) {
+    margin-bottom: 20px;
+  }
+
   div.section-header span {
     padding: 5px 10px;
     font-weight: bolder;

@@ -81,13 +81,6 @@
     {name: '赵六'},
     {name: '老王'},
     {name: '二狗'},
-    {name: '二狗'},
-    {name: '二狗'},
-    {name: '二狗'},
-    {name: '二狗'},
-    {name: '二狗'},
-    {name: '二狗'},
-    {name: '二狗'},
   ])
 
   const activeFunc = text => {

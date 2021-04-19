@@ -1,53 +1,66 @@
 <template>
-  <section class="message-show-container">
-    <div class="message-show">
-      <message-show-item v-for="(item, index) in data" :key="index"
-                         :commentInfo="item.commentInfo"
-                         :replyInfo="item.replyInfo" :replayTime="item.replyTime" :showComment="item.showComment" :articleInfo="item.articleInfo"/>
-    </div>
-    <div class="message-send">
-      <send-notice></send-notice>
-      <feed-back></feed-back>
+  <section>
+    <div class="message-container">
+      <div class="message-main">
+        <message-show-item v-for="(item, index) in messageData" :key="index"
+                           :messageFrom="item.userinfo"
+                           :messageTime="item.time"
+                           :isShow="item.isShow"
+                           :contents="item.contents"
+                           @delete="deleteMessage"
+                           :currentIndex="index" />
+      </div>
+      <div style="text-align: center">功能开发中...</div>
     </div>
   </section>
 </template>
 
 <script setup>
-  import MessageShowItem from "views/admin/comments/MessageShowItem.vue"
-  import SendNotice from "views/admin/comments/SendNotice.vue"  // 发送通知
-  import FeedBack from "views/admin/comments/FeedBack.vue"  // 用户反馈
+  import MessageShowItem from 'views/admin/comments/MessageShowItem.vue'
+  import {ref} from "vue";
+  import {ElMessage} from "element-plus";
 
-  import {defineProps} from "vue";
+  const messageData = ref([
+    {userinfo: {name:'张三', avatar: 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'}, time: '2021-01-01', isShow: true, contents: 'some text some text&#127773;some text\nsome text some text\nsome text '},
+    {userinfo: {name:'李四', avatar: 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'}, time: '2021-01-01', isShow: false, contents: 'some text some text\nsome text some text\nsome text '},
+    {userinfo: {name:'王五', avatar: 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'}, time: '2021-01-01', isShow: true, contents: 'some text some&#127773;text some text\nsome text some text\nsome text '},
+    {userinfo: {name:'赵六', avatar: 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'}, time: '2021-01-01', isShow: false, contents: 'some text some text some text\nsome text '},
+    {userinfo: {name:'张三', avatar: 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'}, time: '2021-01-01', isShow: true, contents: 'some text some \ntext some text\nsome text some text\nsome text '},
+    {userinfo: {name:'张三', avatar: 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'}, time: '2021-01-01', isShow: true, contents: 'some text some&#127773;text some text\nsome text some text\nsome text '},
+  ])
 
-  const props = defineProps({
-    data: Array
-  })
-
+  // 删除留言
+  const deleteMessage = index => {
+    messageData.value.splice(index, 1)
+    ElMessage.success({
+      message: '删除成功!',
+      type: 'success'
+    });
+  }
 </script>
 
 <style scoped>
-
-  .message-show-container {
+  .message-container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-    margin-bottom: 20px;
   }
 
-  .message-show {
-    display: flex;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-    flex-direction: column;
+  .message-main {
     background: #20222a;
-    padding: 10px 15px;
     border-radius: 6px;
+    color: #ffffff;
+    padding: 10px 15px;
+    display: grid;
+    grid-gap: 10px;
   }
 
-  @media screen and (max-width: 768px){
-    .message-show-container {
+  @media screen and (max-width: 768px) {
+    .message-container {
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: 20px;
     }
+
   }
 </style>

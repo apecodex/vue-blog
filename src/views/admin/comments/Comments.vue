@@ -1,13 +1,15 @@
 <template>
   <section class="comments-container">
-    <section-header :bg="false" title="文章评论"></section-header>
-    <message-show :data="comments.commentData.data"/>
-    <section-header :bg="false" title="留言"></section-header>
+    <section-header :bg="false" title="文章评论"/>
+    <comment-show :data="comments.commentData.data"/>
+    <section-header :bg="false" title="留言"/>
+    <message-show />
   </section>
 </template>
 
 <script setup>
   import SectionHeader from "common/common/SectionHeader.vue"
+  import CommentShow from 'views/admin/comments/CommentShow.vue'
   import MessageShow from 'views/admin/comments/MessageShow.vue'
   import {reactive} from "vue";
 
@@ -125,4 +127,10 @@
 
 <style scoped>
 
+</style>
+
+<style>
+  body {
+    overflow: hidden;
+  }
 </style>
