@@ -27,6 +27,7 @@ const Admin = () => import('views/admin/Admin.vue')
 const DashBoard = () => import('views/admin/dashboard/DashBoard.vue')
 const Users = () => import('views/admin/users/Users.vue')
 const Comments = () => import('views/admin/comments/Comments.vue')
+const Articles = () => import('views/admin/articles/Article.vue')
 
 const PageError = () => import('components/error/PageError.vue')
 
@@ -163,6 +164,14 @@ const router = createRouter({
           component: Comments,
           meta: {
             title: '消息 · admin'
+          }
+        },
+        {
+          path: '/admin/articles',
+          name: 'Articles',
+          component: Articles,
+          meta: {
+            title: '博文 · admin'
           }
         },
       ]
