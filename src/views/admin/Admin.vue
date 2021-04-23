@@ -71,6 +71,7 @@
     background: #003147;
     transition: .5s;
     overflow: hidden;
+    z-index: 999;
   }
 
   .navigation.active {
