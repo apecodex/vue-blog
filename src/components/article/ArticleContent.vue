@@ -11,7 +11,7 @@
             @click.prevent="handleAnchorClick(anchor)" :data-scroll="anchor.scroll">
           <a style="cursor: pointer" href="#">{{ anchor.title }}</a></li>
       </ul>
-      </div>
+    </div>
     <div class="article-main box-border-white">
       <article-header :title="title" :time="time" :tagLink="tagLink" :tagName="tagName" :categoryLink="categoryLink" :categoryName="categoryName" :eye="eye"></article-header>
       <v-md-editor v-model="text" mode="preview" ref="editor"></v-md-editor>

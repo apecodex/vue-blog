@@ -1,0 +1,44 @@
+header {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+}
+
+span.img {
+  margin-right: 5px;
+}
+
+span a {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+}
+
+span.img img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.user-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  border-radius: 4px;
+  padding: 2px 10px;
+}
+
+.user-info.dark {
+  background: #20222a;
+  color: #ffffff;
+}
+
+.user-info span {
+  font-weight: bold;
+}
+.user-info small {
+  font-size: 12px;
+  padding: 0 10px;
+}

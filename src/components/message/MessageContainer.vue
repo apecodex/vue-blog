@@ -17,8 +17,10 @@
 
 <style scoped>
   .message-inner {
-    padding: 5px 13vw 0;
-    display: flex;
+    padding: 5px 15vw 0;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    grid-gap: 20px;
     height: 100%;
     z-index: 9999;
   }
@@ -39,7 +41,7 @@
 
   @media screen and (max-width: 768px) {
     .message-inner {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       height: 100%;
     }
 

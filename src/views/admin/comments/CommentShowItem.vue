@@ -45,7 +45,6 @@
 </template>
 
 <script setup>
-  import Comment from "common/comment/Comment.vue"
 
   import {defineProps, ref} from "vue";
   import {entitiestoUtf16, utf16toEntities} from 'utils/utils.js'

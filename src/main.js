@@ -7,6 +7,8 @@ import App from './App.vue'
 // ElementPlus
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
+// Comment 评论组件
+import CommentUi from "./lib/comment-ui";
 
 // 编写markdown
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -36,6 +38,7 @@ import '@kangc/v-md-editor/lib/plugins/highlight-lines/highlight-lines.css';
 import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
 import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
 
+
 VueMarkdownEditor
   .use(vuepressTheme,{
     codeHighlightExtensionMap: {
@@ -51,7 +54,7 @@ VueMarkdownEditor
   .use(createCopyCodePlugin());
 
 const app = createApp(App)
-app.use(router).use(store).use(ElementPlus).use(VueMarkdownEditor);
+app.use(router).use(store).use(ElementPlus).use(VueMarkdownEditor).use(CommentUi);
 
 // 修改浏览器 title
 router.beforeEach((to, from, next) => {

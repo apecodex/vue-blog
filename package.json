@@ -2,7 +2,7 @@
   "name": "apecode-blog",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "cross-env NODE_ENV=development vite",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -11,6 +11,7 @@
     "@kangc/v-md-editor": "^2.2.2",
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.33",
+    "mockjs": "^1.1.0",
     "vue": "^3.0.5",
     "vue-router": "^4.0.4",
     "vuex": "^4.0.0"
@@ -18,6 +19,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.1",
     "@vue/compiler-sfc": "^3.0.5",
-    "vite": "^2.2.1"
+    "cross-env": "^7.0.3",
+    "vite": "^2.2.1",
+    "vite-plugin-mock": "^2.5.0"
   }
 }

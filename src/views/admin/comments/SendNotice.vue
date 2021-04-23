@@ -24,7 +24,7 @@
         </div>
         <button class="search-btn">查询</button>
         <div class="show-content">
-          <div class="item" ref="showContent" v-if="users.length !== 0">
+          <div class="item" v-if="users.length !== 0">
             <span v-for="(item, index) in users" :key="index"><b :style="{'background-color': color()}">{{ item.name }}</b><i class="fa fa-times fa-fw" @click="closeBtn(index)"></i></span>
           </div>
           <div v-else>
@@ -52,7 +52,6 @@
 <script setup>
   import {color} from 'utils/utils.js'
   import SectionHeader from "common/common/SectionHeader.vue"
-  import Comment from 'common/comment/Comment.vue'
   import {computed, ref} from "vue";
 
   const username = ref('')

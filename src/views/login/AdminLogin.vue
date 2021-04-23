@@ -15,7 +15,7 @@
             </div>
             <div>
               <h5>Username</h5>
-              <input v-model="username" type="text" class="input" @click="clickUInput" ref="uInput">
+              <input v-model="username" type="text" class="input" @click="clickUInput">
             </div>
           </div>
           <div class="input-div two" :class="{'focus': password !== ''}">

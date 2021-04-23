@@ -11,10 +11,6 @@ export default {
 </script>
 
 <style scoped>
-  .message-box {
-    padding-right: 25px;
-  }
-
   @media screen and (max-width: 768px) {
     .message-box {
       padding-right: 0;

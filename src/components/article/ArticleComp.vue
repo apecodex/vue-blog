@@ -14,13 +14,14 @@
                        :text="text"/>
       <article-footer></article-footer>
       <div class="hr">有何感想，评论一下吧</div>
+      <div class="h10"></div>
       <comment rows="5"
                actionUrl=""
                method="get"
                :onSubmit="onSubmit"
                btnText="评论"/>
       <div class="h20"></div>
-      <comment-show :messages="messages"/>
+      <comment-show />
 
     </div>
   </section>
@@ -30,9 +31,6 @@
 import loading from 'components/loader/loading.vue'
 import ArticleContent from 'components/article/ArticleContent.vue'
 import ArticleFooter from 'components/article/ArticleFooter.vue'
-
-import Comment from 'common/comment/Comment.vue'  // 评论组件
-import CommentShow from 'common/commentShow/CommentShow.vue';
 
 // 加载loader...
 import {ref, onBeforeMount, reactive} from "vue";
@@ -209,6 +207,10 @@ const onSubmit = (e, a) => {
 
   .article-content > div {
     margin: 0;
+  }
+
+  .h10 {
+    height: 20px;
   }
 
   .h20 {
