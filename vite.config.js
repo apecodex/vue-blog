@@ -13,6 +13,7 @@ export default defineConfig({
       'common': path.resolve(__dirname, 'src/common'),
       'components': path.resolve(__dirname, 'src/components'),
       'lib': path.resolve(__dirname, 'src/lib'),
+      'scripts': path.resolve(__dirname, 'src/scripts'),
       'network': path.resolve(__dirname, 'src/network'),
       'views': path.resolve(__dirname, 'src/views'),
       'utils': path.resolve(__dirname, 'src/utils')
