@@ -1,6 +1,5 @@
 import {ref} from "vue";
-// import {saveArticle, text, html} from './article.js'
-import {ElMessage, ElNotification} from "element-plus";
+import {ElLoading, ElMessage, ElNotification} from "element-plus";
 
 
 const ruleForm = ref(null)
@@ -14,10 +13,6 @@ const articleForm = ref({
   articleContent: ''
 })
 
-// markdown
-const text = ref('')
-const html = ref('')
-
 const clearArticleForm = () => {
   articleForm.value.articleTitle = ''
   articleForm.value.articleTag = []
@@ -27,13 +22,27 @@ const clearArticleForm = () => {
 }
 
 const checkArticleForm = () => {
-  return articleForm.value.articleTitle !== '' &&
-      articleForm.value.articleTag.length !== 0 &&
-      articleForm.value.categoryValue !== ''  &&
-      articleForm.value.imageUrl !== '' &&
-      articleForm.value.articleContent !== ''
+  if (articleForm.value.articleTitle === '') {
+    ElMessage.error('请输入文章标题');
+    return false
+  } else if ( articleForm.value.articleTag.length === 0 ) {
+    ElMessage.error('至少要选一个标签');
+    return false
+  } else if ( articleForm.value.categoryValue === '') {
+    ElMessage.error('请选择分类');
+    return false
+  } else if (articleForm.value.imageUrl === '') {
+    ElMessage.error('请上传一张背景图');
+    return false
+  } else if (articleForm.value.articleContent === '') {
+    ElMessage.error('未编写文章主体内容');
+    return false
+  } else {
+    return true
+  }
 }
 
+// 验证标题
 const validateTitle = (rule, value, callback) => {
   if (value === '') {
     callback(new Error('请输入标题'));
@@ -44,6 +53,7 @@ const validateTitle = (rule, value, callback) => {
   }
 }
 
+// 验证标签
 const validateTag = (rule, value, callback) => {
   if (value.length === 0) {
     callback(new Error('至少要选择一个标签'));
@@ -54,6 +64,7 @@ const validateTag = (rule, value, callback) => {
   }
 }
 
+// 验证分类
 const validateCategory = (rule, value, callback) => {
   if (value === '') {
     callback(new Error('请输入标题'));
@@ -64,6 +75,7 @@ const validateCategory = (rule, value, callback) => {
   }
 }
 
+// 验证背景图
 const validateImageUrl = (rule, value, callback) => {
   if (articleForm.value.imageUrl === '') {
     callback(new Error('请上传图片'));
@@ -72,6 +84,7 @@ const validateImageUrl = (rule, value, callback) => {
   }
 }
 
+// 表单规则
 const rules = ref({
   articleTitle: [
     { required: true, validator: validateTitle, trigger: 'blur' }
@@ -90,35 +103,33 @@ const rules = ref({
 // 提交
 const submitForm = (t, h) => {
   ruleForm.value.validate((valid) => {
+
+    const checkResult = checkArticleForm()
     if (valid) {
-      saveArticle()
-      console.log(t, h)
-      if (t.value === '') {
-        ElMessage.error({
-          message: '文章内容？',
-          type: 'error'
+      if (checkResult && t !== '' && h !== '') {
+        let loadingInstance = ElLoading.service({
+          target: '.article-write-container'
         });
-        return false
-      }
-      if (checkArticleForm() && text.value !== '') {
         clearArticleForm()
         ElNotification({
           title: '成功',
           message: '保存成功',
           type: 'success'
         })
+        loadingInstance.close()
       }
-
     } else {
-      console.log('error submit!!');
       return false;
     }
   });
 }
 
 const handleSaveArticle = (t, h) => {
-  text.value = t
-  html.value = h
+  if (t === true) {
+    saveArticle()
+  } else {
+    submitForm(t,h)
+  }
 }
 
 const saveArticle = () => {
@@ -130,9 +141,5 @@ export {
   articleForm,
   rules,
   ruleForm,
-  text,
-  html,
-  saveArticle,
-  submitForm,
   handleSaveArticle
 }

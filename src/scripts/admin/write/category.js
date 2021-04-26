@@ -17,20 +17,20 @@ const categoryDescription = ref('')
 const categoryImage = ref('')
 
 const categorys = ref([{
-  value: '选项1',
-  label: '黄金糕'
+  value: 'Java',
+  label: 'Java'
 }, {
-  value: '选项2',
-  label: '双皮奶'
+  value: 'Python',
+  label: 'Python'
 }, {
-  value: '选项3',
-  label: '蚵仔煎'
+  value: 'Go',
+  label: 'Go'
 }, {
-  value: '选项4',
-  label: '龙须面'
+  value: 'JS',
+  label: 'JS'
 }, {
-  value: '选项5',
-  label: '北京烤鸭'
+  value: 'Vue',
+  label: 'Vue'
 }])
 
 // 返回已经选中的分类名称

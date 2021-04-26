@@ -1,11 +1,9 @@
 <template>
-  <el-tabs type="border-card">
+  <el-tabs type="border-card" @tab-click="tobClick">
     <el-tab-pane label="文章列表">
-      <writes />
-
     </el-tab-pane>
     <el-tab-pane label="发表文章">
-<!--      <write />-->
+      <write />
     </el-tab-pane>
   </el-tabs>
 
@@ -14,9 +12,9 @@
 <script setup>
   import SectionHeader from 'common/common/SectionHeader.vue'
   import write from 'views/admin/articles/Write.vue'
-  import writes from 'views/admin/articles/Writes.vue'
-  import {ref} from "vue";
-
+  const tobClick = (e) => {
+    console.log(e)
+  }
 </script>
 
 <style scoped>
