@@ -1,20 +1,11 @@
 <template>
-  <el-tabs type="border-card" @tab-click="tobClick">
-    <el-tab-pane label="文章列表">
-    </el-tab-pane>
-    <el-tab-pane label="发表文章">
-      <write />
-    </el-tab-pane>
-  </el-tabs>
-
+  <section-header title="文章列表"></section-header>
+  <article-list />
 </template>
 
 <script setup>
   import SectionHeader from 'common/common/SectionHeader.vue'
-  import write from 'views/admin/articles/Write.vue'
-  const tobClick = (e) => {
-    console.log(e)
-  }
+  import ArticleList from 'views/admin/articles/ArticleList.vue'
 </script>
 
 <style scoped>

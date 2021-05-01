@@ -1,7 +1,6 @@
 import {ref} from "vue";
 import {ElLoading, ElMessage, ElNotification} from "element-plus";
 
-
 const ruleForm = ref(null)
 
 // 表单
@@ -137,9 +136,19 @@ const saveArticle = () => {
   save[0].click()
 }
 
+// 清除
+const clearAll = () => {
+  articleForm.value.articleTitle = ''
+  articleForm.value.articleTag = []
+  articleForm.value.categoryValue = ''
+  articleForm.value.imageUrl = 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'
+  articleForm.value.articleContent = ''
+}
+
 export {
   articleForm,
   rules,
   ruleForm,
-  handleSaveArticle
+  handleSaveArticle,
+  clearAll
 }

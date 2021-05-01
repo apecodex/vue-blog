@@ -65,6 +65,7 @@
       <el-form-item>
         <div class="submitBtn">
           <el-button type="primary" @click="handleSaveArticle(true)">提交</el-button>
+          <el-button type="info" @click="clearAll">清空</el-button>
         </div>
       </el-form-item>
     </el-form>
@@ -106,7 +107,7 @@
 </template>
 
 <script setup>
-import { articleForm, rules, ruleForm, handleSaveArticle } from "scripts/admin/write/index";
+import { articleForm, rules, ruleForm, handleSaveArticle, clearAll } from "scripts/admin/write/index";
 // 标签
 import {tagValue, tags} from 'scripts/admin/write/articleTag'
 
@@ -134,9 +135,26 @@ import {
   beforeAvatarUpload
 } from 'scripts/admin/write/uploadImage'
 
+import {useRoute} from "vue-router";
+const route = useRoute()
+
+if (route.query.id !== undefined) {
+  articleForm.value.articleTitle = '关于我的博客的开发历程'
+  articleForm.value.articleTag = ['Java', 'Python']
+  articleForm.value.categoryValue = '编程'
+  articleForm.value.imageUrl = 'https://i.loli.net/2021/04/05/ioqHfzTkVlByubS.jpg'
+  articleForm.value.articleContent = '# hello'
+}
+
 </script>
 
 <style scoped>
+  .article-write-container {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+  }
+
   .add-category {
     margin: 0 5px;
   }

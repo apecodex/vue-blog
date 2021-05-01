@@ -7,7 +7,8 @@
             <nav-item @click="navBtn" path="dashboard" fontawesome="fa-home" title="仪表盘" />
             <nav-item @click="navBtn" path="users" fontawesome="fa-users" title="用户" />
             <nav-item @click="navBtn" path="comments" fontawesome="fa-comment" title="消息" />
-            <nav-item @click="navBtn" path="articles" fontawesome="fa-pencil-square-o" title="博文" />
+            <nav-item @click="navBtn" path="articles" fontawesome="fa-list-ol" title="博文列表" />
+            <nav-item @click="navBtn" path="write" fontawesome="fa-pencil-square-o" title="新文章" />
             <nav-item @click="navBtn" path="setting" fontawesome="fa-cog" title="设置" />
             <nav-item @click="navBtn" path="password" fontawesome="fa-lock" title="密码" />
             <nav-item @click="navBtn" path="signOut" fontawesome="fa-sign-out" title="退出" />

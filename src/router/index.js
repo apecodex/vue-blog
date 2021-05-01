@@ -28,6 +28,8 @@ const DashBoard = () => import('views/admin/dashboard/DashBoard.vue')
 const Users = () => import('views/admin/users/Users.vue')
 const Comments = () => import('views/admin/comments/Comments.vue')
 const Articles = () => import('views/admin/articles/Article.vue')
+const Write = () => import('views/admin/write/Write.vue')
+
 
 const PageError = () => import('components/error/PageError.vue')
 
@@ -172,6 +174,14 @@ const router = createRouter({
           component: Articles,
           meta: {
             title: '博文 · admin'
+          }
+        },
+        {
+          path: '/admin/write',
+          name: 'Write',
+          component: Write,
+          meta: {
+            title: '编写文章 · admin'
           }
         },
       ]
