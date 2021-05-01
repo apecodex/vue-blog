@@ -29,6 +29,7 @@ const Users = () => import('views/admin/users/Users.vue')
 const Comments = () => import('views/admin/comments/Comments.vue')
 const Articles = () => import('views/admin/articles/Article.vue')
 const Write = () => import('views/admin/write/Write.vue')
+const Setting = () => import('views/admin/setting/Setting.vue')
 
 
 const PageError = () => import('components/error/PageError.vue')
@@ -182,6 +183,14 @@ const router = createRouter({
           component: Write,
           meta: {
             title: '编写文章 · admin'
+          }
+        },
+        {
+          path: '/admin/setting',
+          name: 'Setting',
+          component: Setting,
+          meta: {
+            title: '设置 · admin'
           }
         },
       ]
