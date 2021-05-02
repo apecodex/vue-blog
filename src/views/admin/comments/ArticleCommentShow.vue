@@ -4,6 +4,8 @@
       <comment-show-item v-for="(item, index) in data" :key="index"
                          :commentInfo="item.commentInfo"
                          :replyInfo="item.replyInfo" :replayTime="item.replyTime" :showComment="item.showComment" :articleInfo="item.articleInfo"/>
+      <my-pagination :currentPage="currentPage" :dark="true" :totalPage="10"/>
+
     </div>
     <div class="comment-send">
       <send-notice></send-notice>
@@ -23,6 +25,9 @@
     data: Array
   })
 
+  const currentPage = (current) => {
+    console.log(current)
+  }
 </script>
 
 <style scoped>

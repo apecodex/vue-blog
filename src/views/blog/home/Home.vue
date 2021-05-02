@@ -26,6 +26,8 @@
                       articleId="bbb"
                       articleTitle="我的第二篇博客"
                       articleImg="##"/>
+        <my-pagination :currentPage="currentPage" :totalPage="10"/>
+
       </template>
       <!-- 搜索 -->
       <template #search>
@@ -149,6 +151,10 @@
 
   const tags = ref(['Java', 'Python', 'Go', 'Linux', 'Servlet', 'Tomcat', '算法', '日常', '学习']);
   const friendLinks = ref([{'name': 'apecode', 'link': 'https://liuyangxiong.cn'}, {name: 'aaaa', link: '#'}, {'name': '跌幅超过', 'link': '#'}, {'name': 'test name', 'link': '#'}, {'name': 'test name', 'link': '#'}, {'name': 'test name', 'link': '#'}])
+
+  const currentPage = (current) => {
+    console.log(current)
+  }
 </script>
 
 <style scoped>

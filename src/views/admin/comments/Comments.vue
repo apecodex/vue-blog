@@ -3,8 +3,7 @@
     <section-header :bg="false" title="文章评论"/>
     <article-comment-show :data="comments.commentData.data"/>
     <section-header :bg="false" title="留言"/>
-
-        <message-show />
+    <message-show />
   </section>
 </template>
 

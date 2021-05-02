@@ -3,6 +3,7 @@
     <div class="message-container">
       <div class="message-main">
         <comment-show :dark="true" :show="true" :update="true" :delete="true" />
+        <my-pagination :currentPage="currentPage" :dark="true" :totalPage="10"/>
 
       </div>
       <div style="text-align: center">功能开发中...</div>
@@ -21,6 +22,10 @@
       message: '删除成功!',
       type: 'success'
     });
+  }
+
+  const currentPage = (current) => {
+    console.log(current)
   }
 </script>
 

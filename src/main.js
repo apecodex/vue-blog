@@ -9,6 +9,8 @@ import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 // Comment 评论组件
 import CommentUi from "./lib/comment-ui";
+// 分页
+import MyPagination from "./lib/pagination"
 
 // 编写markdown
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -54,7 +56,7 @@ VueMarkdownEditor
   .use(createCopyCodePlugin());
 
 const app = createApp(App)
-app.use(router).use(store).use(ElementPlus).use(VueMarkdownEditor).use(CommentUi);
+app.use(router).use(store).use(ElementPlus).use(VueMarkdownEditor).use(CommentUi).use(MyPagination);
 
 // 修改浏览器 title
 router.beforeEach((to, from, next) => {

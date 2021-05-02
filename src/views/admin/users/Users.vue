@@ -28,15 +28,19 @@
       </div>
     </div>
   </div>
+  <br><br>
+  <my-pagination :currentPage="currentPage" :totalPage="10"/>
 </template>
 
 <script setup>
   import UserList from "views/admin/users/userList/UserList.vue";
-
   import {ref} from "vue";
 
   const noSearchShow = ref(false)
 
+  const currentPage = (current) => {
+    console.log(current)
+  }
 </script>
 
 <style scoped>

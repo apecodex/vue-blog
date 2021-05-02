@@ -16,6 +16,8 @@
       <message-right-content>
         <template #messageShow>
           <comment-show :dark="false"/>
+          <br>
+          <my-pagination :currentPage="currentPage" :totalPage="10"/>
         </template>
       </message-right-content>
     </template>
@@ -47,6 +49,10 @@
     console.log(a);
 
     e.preventDefault()
+  }
+
+  const currentPage = (current) => {
+    console.log(current)
   }
 
 </script>
