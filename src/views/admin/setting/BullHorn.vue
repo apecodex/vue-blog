@@ -1,7 +1,7 @@
 <template>
   <p>当前公告: <span style="color: crimson">{{ entitiestoUtf16(content) }}</span></p>
   <br>
-  <comment :btnText="loading ? '发布中':'发布'" :content="content" :onSubmit="onSubmit" :loading="loading"></comment>
+  <comment rows="6" :btnText="loading ? '发布中':'发布'" :content="content" :onSubmit="onSubmit" :loading="loading"></comment>
 </template>
 
 <script setup>

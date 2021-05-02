@@ -4,7 +4,7 @@
       <template #label>
         <span><i class="fa fa-cog fa-fw"></i>网站设置</span>
       </template>
-      <web-site></web-site>
+      <web-site/>
     </el-tab-pane>
     <el-tab-pane>
       <template #label>
@@ -16,7 +16,13 @@
       <template #label>
         <span><i class="fa fa-bullhorn fa-fw"></i>公告</span>
       </template>
-      <bull-horn></bull-horn>
+      <bull-horn/>
+    </el-tab-pane>
+    <el-tab-pane>
+      <template #label>
+        <span><i class="fa fa-question fa-fw"></i>关于我</span>
+      </template>
+      <about/>
     </el-tab-pane>
     <el-tab-pane>
       <template #label>
@@ -31,6 +37,7 @@
   import UpdatePassword from "views/admin/setting/UpdatePassword.vue";
   import WebSite from "views/admin/setting/WebSite.vue";
   import BullHorn from "views/admin/setting/BullHorn.vue";
+  import About from "views/admin/setting/About.vue";
 </script>
 
 <style scoped>
