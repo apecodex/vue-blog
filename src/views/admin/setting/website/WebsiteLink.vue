@@ -20,16 +20,16 @@
           <el-input v-model="newLinkForm.name" maxlength="10" show-word-limit autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="图标" prop="icon">
-          <p>图标仅支持<b><a href="http://www.fontawesome.com.cn/">fontawesome</a></b><br/>你输入的效果为：<i class="fa fa-fw" :class="[newLinkForm.icon]"></i></p>
-          <el-input v-model="newLinkForm.icon" autocomplete="off"></el-input>
+          <p>图标仅支持<b><a href="http://www.fontawesome.com.cn/">fontawesome</a></b><br/>效果：<i class="fa fa-fw" :class="[newLinkForm.icon]"></i></p>
+          <el-input v-model="newLinkForm.icon" autocomplete="off" placeholder="例：fa-bath"></el-input>
         </el-form-item>
         <el-form-item label="能否跳转" >
           <el-radio v-model="newLinkForm.isLink" :label="true">能</el-radio>
           <el-radio v-model="newLinkForm.isLink" :label="false">不能</el-radio>
         </el-form-item>
         <el-form-item label="描述" prop="desc">
-          <el-input v-if="newLinkForm.isLink" v-model="newLinkForm.desc" maxlength="20" show-word-limit autocomplete="off" placeholder="请输入可跳转的链接"></el-input>
-          <el-input v-else v-model="newLinkForm.desc" autocomplete="off" placeholder="请描述该链接"></el-input>
+          <el-input v-if="newLinkForm.isLink" v-model="newLinkForm.desc" autocomplete="off" placeholder="请输入可跳转的链接"></el-input>
+          <el-input v-else v-model="newLinkForm.desc" autocomplete="off" maxlength="20" show-word-limit placeholder="请描述该链接"></el-input>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -44,7 +44,7 @@
 
 <script setup>
 import {computed, ref} from "vue";
-  import {ElMessage} from "element-plus";
+import {ElMessage, ElMessageBox} from "element-plus";
 
   const loading = ref(false)
   const dialogFormVisible = ref(false)
@@ -114,7 +114,22 @@ import {computed, ref} from "vue";
   }
 
   const handleClose = (tag) => {
-    dynamicLinks.value.splice(dynamicLinks.value.indexOf(tag), 1);
+    ElMessageBox.confirm('确定删除该链接吗？', '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }).then(() => {
+      dynamicLinks.value.splice(dynamicLinks.value.indexOf(tag), 1);
+      ElMessage({
+        message: '删除成功',
+        type: 'success'
+      });
+    }).catch(() => {
+      ElMessage({
+        message: '已取消删除',
+        type: 'info'
+      })
+    })
   }
 
   const showInput = () => {

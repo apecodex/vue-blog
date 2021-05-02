@@ -6,9 +6,8 @@
           <textarea :class="{'dark': dark}" name="content" v-model="content" :rows="rows" :placeholder="placeholder" ref="contentArea" />
         </div>
         <div class="tool">
-          <button class="comment-btn" :class="{'dark': dark}">{{ btnText }}</button>
+          <button class="comment-btn" :class="{'dark': dark}"><i class="el-icon-loading" v-if="loading"></i>{{ btnText }}</button>
           <emoji @getEmoji='getEmoji' :dark="dark"/>
-          <!--          <i class="fa fa-link" aria-hidden="true"></i>-->
         </div>
       </form>
     </div>
@@ -44,6 +43,7 @@
       type: String,
       default: '',
     },
+    loading: false,
     onSubmit: Function
   })
 

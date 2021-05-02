@@ -33,7 +33,11 @@ const route = useRoute()
   }))
 
   const btnItem = () => {
-    router.push('/admin/' + path.value);
+    if (path.value === 'signOut') {
+      router.push('/admin/login')
+    } else {
+      router.push('/admin/' + path.value);
+    }
   }
 </script>
 
