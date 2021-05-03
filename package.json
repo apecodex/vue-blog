@@ -21,6 +21,7 @@
     "@vue/compiler-sfc": "^3.0.11",
     "cross-env": "^7.0.3",
     "vite": "^2.2.3",
+    "vite-plugin-compression": "^0.2.4",
     "vite-plugin-mock": "^2.5.0"
   }
 }
