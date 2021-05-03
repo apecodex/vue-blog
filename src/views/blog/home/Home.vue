@@ -6,7 +6,7 @@
     <home-container>
       <!-- 通知 -->
       <template #notice>
-        <notice notice="apecode notice"/>
+        <notice notice="项目地址: https://github.com/rookiesmile/vue-blog"/>
       </template>
       <!-- 文章 -->
       <template #article>
